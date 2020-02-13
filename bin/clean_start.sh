@@ -13,5 +13,5 @@ docker run -ti poc_front_end /bin/cat /home/node/package.json > ./poc_front_end/
 docker run -ti poc_front_end /bin/cat /home/node/npm-shrinkwrap.json > ./poc_front_end/npm-shrinkwrap.json
 
 # do the same fot the docker-compose env
-docker-compose rm
+docker-compose down --rmi all --volumes --remove-orphans
 docker-compose build
