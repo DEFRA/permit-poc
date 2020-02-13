@@ -12,12 +12,13 @@ services:
       - "80:3000"
     volumes:
       # overlay local file system and mount in container
+      - ${PWD}/poc_front_end/bin:/home/node/bin
       - ${PWD}/poc_front_end/src:/home/node/src
       # use a volume to persist node_modules, prevents leakage to host
       - web_node_modules:/home/node/node_modules
     environment:
       HOST_NAME: "web"
-    command: "/home/node/run_watch.sh"
+    entrypoint: "/home/node/bin/run_watch.sh"
   unit.test:
     build:
       context: ${PWD}/poc_front_end
@@ -26,13 +27,14 @@ services:
       - "8080:3000"
     volumes:
       # overlay local file system and mount in container
+      - ${PWD}/poc_front_end/bin:/home/node/bin
       - ${PWD}/poc_front_end/src:/home/node/src
       - ${PWD}/poc_front_end/tests:/home/node/test
       # use a volume to persist node_modules, prevents leakage to host
       - unit_test_node_modules:/home/node/node_modules
     environment:
       HOST_NAME: "unit.test"
-    entrypoint: /home/node/run_watch_tests.sh
+    entrypoint: /home/node/bin/run_watch_tests.sh
 volumes:
   web_node_modules: {}
   unit_test_node_modules: {}
