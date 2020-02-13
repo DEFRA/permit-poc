@@ -1,2 +1,5 @@
 ./Dockerfile
-*/node_modules
+*node_modules
+*.ash_history
+*.config
+*.npm
