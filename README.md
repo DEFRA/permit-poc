@@ -33,6 +33,10 @@ directory):
 This instruction can be run any time to clean up your environments
 (based on the config files you currently have).
 
+To start the application services in _developer mode_
+```sh
+docker-compose up
+```
 
 ## Notes
 
