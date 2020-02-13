@@ -90,11 +90,17 @@ docker-compose exec web /bin/sh
 ## Notes
 
 Docker Best Practice
+- https://docs.docker.com/engine/reference/builder/
+- https://docs.docker.com/compose/
 - https://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
 - https://dev.to/alex_barashkov/using-docker-for-nodejs-in-development-and-production-3cgp
 
 DNS (Mac):
 - https://passingcuriosity.com/2013/dnsmasq-dev-osx/
+
+NPM in containers:
+- https://docs.npmjs.com/cli/ci.html
+- https://docs.npmjs.com/configuring-npm/shrinkwrap-json.html
 
 Process Restart:
 - https://github.com/fgnass/node-dev
