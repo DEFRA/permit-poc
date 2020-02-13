@@ -106,3 +106,10 @@ Process Restart:
 - https://github.com/fgnass/node-dev
 - https://github.com/remy/nodemon
 - https://github.com/foreversd/forever
+
+Related Projects
+- https://github.com/DEFRA/hapi-govuk-question-page/blob/master/test-harness/test-harness-page.js
+- https://github.com/DEFRA/hapi-govuk-question-page/blob/master/API.md
+- https://github.com/ajaxscape/hapi-front-end-template/blob/master/server/modules/hello-world/hello-world.njk
+- https://github.com/ajaxscape/hapi-front-end-template
+- https://github.com/ministryofjustice/moj-frontend
