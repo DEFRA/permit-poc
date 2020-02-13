@@ -38,6 +38,9 @@ To start the application services in _developer mode_
 docker-compose up
 ```
 
+If all goes to plan, the app should be visible at:
+[http://localhost](http://localhost)
+
 ## Notes
 
 ### TODO:
@@ -50,10 +53,10 @@ docker-compose up
 
 ```sh
 # build
-docker build -t rudenoise/hapi:latest hapi_base/
+docker build -t rudenoise/poc_front_end:latest poc_front_end/
 
 # run a shell
-docker run -ti -u=node rudenoise/hapi /bin/sh
+docker run -ti -u=node poc_front_end /bin/sh
 
 # shell on a running container
 docker container exec -it $CONTAINER_ID /bin/sh
