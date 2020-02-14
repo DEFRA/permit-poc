@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-nodemon -- watch $HOME/src/app -e js,html lab
+nodemon --watch $HOME/src/ --watch $HOME/test/ -x lab
 
