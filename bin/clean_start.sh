@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-mkdir -p poc_front_end/tests
+mkdir -p poc_front_end/test
 
 # build, ensuring all layers are removed first, "nuclear" option
 # that removes all the efficiancies of caching layers

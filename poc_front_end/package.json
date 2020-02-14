@@ -1,18 +1,21 @@
-{
-  "name": "hapi_poc",
-  "version": "0.0.1",
-  "description": "a simple hapi js application",
-  "main": "./src/app.js",
-  "dependencies": {
-    "npm": "^6.13.7",
-    "@hapi/hapi": "^19.1.0"
-  },
-  "devDependencies": {
-    "@hapi/lab": "^22.0.3"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
-}
+{
+  "name": "hapi_poc",
+  "version": "0.0.1",
+  "description": "a simple hapi js application",
+  "main": "./src/app.js",
+  "dependencies": {
+    "@hapi/code": "^8.0.1",
+    "@hapi/hapi": "^19.1.0",
+    "@hapi/vision": "^6.0.0",
+    "npm": "^6.13.7",
+    "xmldom": "^0.2.1"
+  },
+  "devDependencies": {
+    "@hapi/lab": "^22.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

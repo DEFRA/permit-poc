@@ -29,12 +29,12 @@ services:
       # overlay local file system and mount in container
       - ${PWD}/poc_front_end/bin:/home/node/bin
       - ${PWD}/poc_front_end/src:/home/node/src
-      - ${PWD}/poc_front_end/tests:/home/node/test
+      - ${PWD}/poc_front_end/test:/home/node/test
       # use a volume to persist node_modules, prevents leakage to host
       - unit_test_node_modules:/home/node/node_modules
     environment:
       HOST_NAME: "unit.test"
-    entrypoint: /home/node/bin/run_watch_tests.sh
+    entrypoint: /home/node/bin/run_watch_test.sh
 volumes:
   web_node_modules: {}
   unit_test_node_modules: {}
