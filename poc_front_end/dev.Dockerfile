@@ -6,7 +6,7 @@ USER root
 
 # add the files and dirs specific to dev and test mode
 COPY ./bin /home/node/bin
-COPY ./tests /home/node/tests
+COPY ./test /home/node/test
 
 # ensure all can run and install dev dependencies too
 RUN npm i -g nodemon \
