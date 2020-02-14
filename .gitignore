@@ -1,4 +1,8 @@
-*/**/.ash_history
-*/**/.config
-*/**/.npm
+**/.ash_history
+**/.config
+**/.npm
+**/node_modules
+**.DS_Store
+**.env
+
 
