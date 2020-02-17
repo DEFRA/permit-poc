@@ -115,6 +115,8 @@ and application flow.
 
 - https://json-schema.org/specification.html
 - https://www.npmjs.com/package/joi-to-json-schema
+- https://gds.blog.gov.uk/2019/12/19/making-gov-uk-more-than-a-website/
+  A round up of accessibility enhancements with JSON schema from GDS
 
 UI Components with JSON Schema
 
