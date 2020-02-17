@@ -107,6 +107,23 @@ Process Restart:
 - https://github.com/remy/nodemon
 - https://github.com/foreversd/forever
 
+JSON Schema
+
+To be used to transfer data between NodeJS and MS Dynamics
+applications, could also be used to structure UI components/screens
+and application flow.
+
+- https://json-schema.org/specification.html
+- https://www.npmjs.com/package/joi-to-json-schema
+
+UI Components with JSON Schema
+
+- https://www.baeldung.com/introduction-to-jsonforms
+- https://github.com/rjsf-team/react-jsonschema-form
+- https://github.com/jsonform/jsonform
+- https://gcanti.github.io/resources/json-schema-to-tcomb/playground/playground.html
+- https://github.com/mozilla/nunjucks/issues/1219
+
 Related Projects
 - https://github.com/DEFRA/hapi-govuk-question-page/blob/master/test-harness/test-harness-page.js
 - https://github.com/DEFRA/hapi-govuk-question-page/blob/master/API.md
