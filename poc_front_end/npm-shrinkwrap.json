@@ -1159,7 +1159,7 @@
       "version": "git+https://github.com/DEFRA/hapi-govuk-question-page.git#5e5d8eda92fb6d2070b9bcf409b0aa3f98e0d696",
       "from": "git+https://github.com/DEFRA/hapi-govuk-question-page.git",
       "requires": {
-        "@hapi/hoek": "^9.0.0",
+        "@hapi/hoek": "^9.0.3",
         "@hapi/joi": "^17.1.0",
         "moment": "^2.24.0"
       }

@@ -28,6 +28,25 @@ services:
       HOST_NAME: "web"
       IDM_HOST: "http://localhost:999"
     entrypoint: "/home/node/bin/run_watch.sh"
+  web.ivory:
+    build:
+      context: ${PWD}/poc_ivory_front_end
+      dockerfile: ${PWD}/poc_ivory_front_end/dev.Dockerfile
+    ports:
+      - "8010:3000"
+    volumes:
+      # overlay local file system and mount in container
+      - ${PWD}/poc_ivory_front_end/bin:/home/node/bin
+      - ${PWD}/poc_ivory_front_end/src:/home/node/src
+      # use a volume to persist node_modules, prevents leakage to host
+      - web_ivory_node_modules:/home/node/node_modules
+    environment:
+      HOST_NAME: "web.ivory"
+      LOG_LEVEL: "debug"
+      SERVICE_URL: "http://localhost:8000"
+      PHASE: "p.o.c"
+      IDM_HOST: "http://localhost:999"
+    entrypoint: "/home/node/bin/run_watch.sh"
   unit.test:
     build:
       context: ${PWD}/poc_front_end
@@ -46,4 +65,5 @@ services:
     entrypoint: /home/node/bin/run_watch_test.sh
 volumes:
   web_node_modules: {}
+  web_ivory_node_modules: {}
   unit_test_node_modules: {}
