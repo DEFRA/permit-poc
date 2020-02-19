@@ -10,7 +10,7 @@
   - Technical topics to return to.
   - Food for thought
   - Reference
-- [Topics Discussed and Loose Decision Log](./topics/)
+- [Topics Discussed and Loose Decision Log](./docs/topics/)
 
 ## About
 
