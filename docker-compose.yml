@@ -9,9 +9,9 @@ services:
     ports:
       - "999:3000"
     environment:
-      HOST_NAME: 'idm.mock'
-      REDIRECT_HOST: 'localhost'
-      TOKEN: 'some_made_up_token'
+      HOST_NAME: "idm.mock"
+      REDIRECT_HOST: "localhost"
+      TOKEN: "some_made_up_token"
   web:
     build:
       context: ${PWD}/poc_front_end
@@ -26,6 +26,7 @@ services:
       - web_node_modules:/home/node/node_modules
     environment:
       HOST_NAME: "web"
+      IDM_HOST: "http://localhost:999"
     entrypoint: "/home/node/bin/run_watch.sh"
   unit.test:
     build:
