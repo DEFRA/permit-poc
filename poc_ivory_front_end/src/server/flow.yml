@@ -1,0 +1,163 @@
+# =====================
+# ===== Main flow =====
+# =====================
+
+home:
+  path: "/"
+  handlers: home/home.handlers
+  next: apply-for-a-permit
+  tags:
+    - always
+
+apply-for-a-permit:
+  path: "/start/start-or-open-saved"
+  handlers: apply-for-a-permit/apply-for-a-permit.handlers
+  title: Apply for an environmental permit
+  isQuestionPage: true
+  view: apply-for-a-permit/apply-for-a-permit
+  next:
+    query: selectedValue
+    when:
+      'start': bespoke-or-standard-rules
+      'open': login
+  tags:
+    - hide-back-link
+
+# ==================================
+# ===== Open applications flow =====
+# ==================================
+
+login:
+  path: "/login"
+  handlers: login/login.handlers
+  title: Please log in to continue
+  view: login/login
+  next: login-result
+  tags:
+    - always
+
+login-result:
+  path: "/login/result"
+  handlers: login/login-result.handlers
+  next: logged-in
+  tags:
+    - always
+
+logged-in:
+  path: "/login/success"
+  handlers: login/logged-in.handlers
+  title: Please continue as logged in user
+  view: login/logged-in
+  next: bespoke-or-standard-rules
+  tags:
+    - always
+
+
+# ================================
+# ===== New application flow =====
+# ================================
+
+bespoke-or-standard-rules:
+  path: "/bespoke-or-standard-rules"
+  handlers: bespoke-or-standard-rules/bespoke-or-standard-rules.handlers
+  title: Confirm the type of permit you want
+  isQuestionPage: true
+  view: bespoke-or-standard-rules/bespoke-or-standard-rules
+  next:
+    query: selectedValue
+    when:
+      'standard-rules': permit-category
+      'bespoke': facility-type
+
+
+# ======================================
+# ===== Choose Standard rules flow =====
+# ======================================
+
+permit-category:
+  path: "/permit/category"
+  handlers: standard-rules/category.handlers
+  title: What do you want the permit for?
+  isQuestionPage: true
+  view: standard-rules/category
+  next:
+    query: isOnline
+    when:
+      'yes': standard-rule
+      'no': apply-offline
+
+standard-rule:
+  path: "/permit/select"
+  handlers: standard-rules/standard-rule.handlers
+  title: Select a permit
+  isQuestionPage: true
+  view: standard-rules/standard-rule
+  next:
+    query: isOnline
+    when:
+      'yes': cost-and-activities
+      'no': apply-offline
+
+
+# ===============================
+# ===== Choose Bespoke flow =====
+# ===============================
+
+facility-type:
+  path: "/facility-type"
+  handlers: bespoke/facility-type.handlers
+  title: What type of facility do you want the permit for?
+  isQuestionPage: true
+  view: bespoke/facility-type
+  next:
+    query: isOnline
+    when:
+      'yes': cost-and-activities
+      'no': apply-offline
+
+
+# ========================
+# ===== Apply offline ====
+# ========================
+
+apply-offline:
+  path: "/start/apply-offline"
+  handlers: offline/apply-offline.handlers
+  view: offline/apply-offline
+
+
+# ========================
+# ===== Apply online ====
+# ========================
+
+cost-and-activities:
+  path: "/cost-times"
+  title: Confirm activities and costs
+  handlers: cost-and-activities/cost-and-activities.handlers
+  view: cost-and-activities/cost-and-activities
+  next: task-list
+
+
+# =====================
+# ===== Task List =====
+# =====================
+
+task-list:
+  path: "/task-list"
+  title: Task list
+  handlers: task-list/task-list.handlers
+  view: task-list/task-list
+  next: address-manual
+#  next: send-application-and-pay
+
+
+# =====================
+# ===== Address =======
+# =====================
+
+address-manual:
+  path: "/address-manual"
+  title: Address
+  handlers: address/address-manual.handlers
+  view: address/address-manual
+  next: task-list

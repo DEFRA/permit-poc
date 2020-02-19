@@ -14,36 +14,40 @@ services:
       TOKEN: "some_made_up_token"
   web:
     build:
-      context: ${PWD}/poc_front_end
-      dockerfile: ${PWD}/poc_front_end/dev.Dockerfile
+      context: ${PWD}/poc_ivory_front_end
+      dockerfile: ${PWD}/poc_ivory_front_end/dev.Dockerfile
     ports:
       - "80:3000"
     volumes:
       # overlay local file system and mount in container
-      - ${PWD}/poc_front_end/bin:/home/node/bin
-      - ${PWD}/poc_front_end/src:/home/node/src
+      - ${PWD}/poc_ivory_front_end/bin:/home/node/bin
+      - ${PWD}/poc_ivory_front_end/src:/home/node/src
       # use a volume to persist node_modules, prevents leakage to host
       - web_node_modules:/home/node/node_modules
     environment:
       HOST_NAME: "web"
+      LOG_LEVEL: "debug"
+      SERVICE_URL: "http://localhost"
+      IDM_LOGIN_URL: "http://localhost/idm/login"
+      PHASE: "p.o.c"
       IDM_HOST: "http://localhost:999"
     entrypoint: "/home/node/bin/run_watch.sh"
-  unit.test:
-    build:
-      context: ${PWD}/poc_front_end
-      dockerfile: ${PWD}/poc_front_end/dev.Dockerfile
-    ports:
-      - "8080:3000"
-    volumes:
-      # overlay local file system and mount in container
-      - ${PWD}/poc_front_end/bin:/home/node/bin
-      - ${PWD}/poc_front_end/src:/home/node/src
-      - ${PWD}/poc_front_end/test:/home/node/test
-      # use a volume to persist node_modules, prevents leakage to host
-      - unit_test_node_modules:/home/node/node_modules
-    environment:
-      HOST_NAME: "unit.test"
-    entrypoint: /home/node/bin/run_watch_test.sh
+#  unit.test:
+#    build:
+#      context: ${PWD}/poc_ivory_front_end
+#      dockerfile: ${PWD}/poc_ivory_front_end/dev.Dockerfile
+#    ports:
+#      - "8080:3000"
+#    volumes:
+#      # overlay local file system and mount in container
+#      - ${PWD}/poc_ivory_front_end/bin:/home/node/bin
+#      - ${PWD}/poc_ivory_front_end/src:/home/node/src
+#      - ${PWD}/poc_ivory_front_end/test:/home/node/test
+#      # use a volume to persist node_modules, prevents leakage to host
+#      - unit_test_node_modules:/home/node/node_modules
+#    environment:
+#      HOST_NAME: "unit.test"
+#    entrypoint: /home/node/bin/run_watch_test.sh
 volumes:
   web_node_modules: {}
-  unit_test_node_modules: {}
+#  unit_test_node_modules: {}
