@@ -4,6 +4,14 @@ services:
     image: "nginx"
     ports:
       - "8000:80"
+  idm.mock:
+    build: ${PWD}/idm_mock
+    ports:
+      - "999:3000"
+    environment:
+      HOST_NAME: 'idm.mock'
+      REDIRECT_HOST: 'localhost'
+      TOKEN: 'some_made_up_token'
   web:
     build:
       context: ${PWD}/poc_front_end

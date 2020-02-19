@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-mkdir -p poc_front_end/test
-
 # build, ensuring all layers are removed first, "nuclear" option
 # that removes all the efficiancies of caching layers
 docker build --no-cache -t poc_front_end poc_front_end/
