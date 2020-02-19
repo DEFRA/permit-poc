@@ -1,5 +1,13 @@
 # Defra Permit POC
 
+## Contents
+
+- [About](#about)
+- [Requirements](#requirements)
+- [Getting Started](#getting-started)
+- [Docker Compose](#docker-compose)
+- [Notes](#notes)
+
 
 ## About
 
@@ -41,11 +49,7 @@ docker-compose up
 If all goes to plan, the app should be visible at:
 [http://localhost](http://localhost)
 
-## Notes
 
-### TODO:
-
-- look at `npm ci` with package-lock and/or shrinkwrap
 
 ### Handy Commands
 
@@ -88,6 +92,12 @@ docker-compose exec web /bin/sh
 
 
 ## Notes
+
+### TODO:
+
+- look at `npm ci` with package-lock and/or shrinkwrap
+
+### Reference
 
 Docker Best Practice
 - https://docs.docker.com/engine/reference/builder/
