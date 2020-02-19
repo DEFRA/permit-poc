@@ -3,32 +3,13 @@
 const Hapi = require('@hapi/hapi')
 const OS = require('os')
 
+const Assets = require('./assets')
+const Routes = require('./routes')
+const Plugins = require('./plugins')
+
 const server = Hapi.server({
   port: 3000,
   host: process.env.HOST_NAME
-})
-
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: (request, h) => {
-    return `<H1 id="hello-world">Hello World from ${process.env.HOST_NAME}!</H1>
-    <p>Fake a sign in via IDM <a href="${process.env.IDM_HOST}?redirect_path=/redirect_path">here...</a></p>
-    `
-  }
-})
-
-server.route({
-  method: 'GET',
-  path: '/redirect_path',
-  handler: (request, h) => {
-    return `
-      <h1>You just came back from IDM (mock)</h1>
-      <pre>
-${JSON.stringify(request.query, ' ', 2)}
-      </pre>
-    `
-  }
 })
 
 exports.init = async () => {
@@ -37,6 +18,20 @@ exports.init = async () => {
 }
 
 exports.start = async () => {
+  // Register the plugins
+  await Promise.all(Plugins.map(async filename => {
+    await server.register(require('./plugins/' + filename))
+  }))
+
+  // Set up static assets
+  server.route(Assets)
+
+  // Register the routes
+  await Promise.all(Routes.map(async filename => {
+    await server.route(require('./routes/' + filename))
+  }))
+
+  // Start server
   await server.start()
   console.log(`Server running at: ${server.info.uri}`)
   return server
