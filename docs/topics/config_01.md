@@ -1,5 +1,4 @@
-# Discussion of configuration driven screen UI and flow
-# design
+# Discussion of configuration driven screen UI and flow design
 
 17/02/2020
 
@@ -43,7 +42,7 @@ has many UX components we could make use of.
 ## Approach Discussed
 
 The logic inside the application could be developed using a more
-"config driven" approach.
+"configuration driven" approach.
 
 - the flow between screens could be represented in its own data
   structure
@@ -51,5 +50,16 @@ The logic inside the application could be developed using a more
   data-structures/formats do they accept, what do they return)
 - the collected data is stored and passed to other services
   according to another contract
+
+We could reason about each "area of concern" independently, using
+a JSON-Schema to define the inputs and outputs between each
+area/domain:
+```
+
+routing         |                   |   persistence/storage
+screen config   |   UI components   |   API contracts
+flow            |                   |
+
+```
 
 ![whiteboard sketch](./config_01.jpg)
