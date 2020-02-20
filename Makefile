@@ -25,9 +25,6 @@ idm_build_clean_prod:
 start_dev:
 	docker-compose up
 
-start_dev_mode:
-	docker-compose up
-
 start_prod_mode:
 	docker-compose -f ./docker-compose-like-prod.yml up
 
