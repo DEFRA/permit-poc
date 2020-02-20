@@ -2,11 +2,10 @@
 
 set -euo pipefail
 
-mkdir -p poc_front_end/test
-
 # build, ensuring all layers are removed first, "nuclear" option
 # that removes all the efficiancies of caching layers
 docker build --no-cache -t poc_front_end poc_front_end/
+docker build --no-cache -t poc_idm_mock idm_mock/
 
 # copy the node files so that they can be added to version control
 docker run -i poc_front_end /bin/cat /home/node/package.json > ./poc_front_end/package.json

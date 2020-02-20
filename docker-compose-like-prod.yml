@@ -8,18 +8,23 @@ services:
     image: poc_front_end
     ports:
       - "80:3000"
-    volumes:
-      - web_node_modules:/home/node/node_modules
     environment:
       HOST_NAME: "web"
+      IDM_HOST: "http://localhost:999"
   unit.test:
     image: poc_front_end
     ports:
       - "8080:3000"
-    volumes:
-      - unit_test_node_modules:/home/node/node_modules
     environment:
       HOST_NAME: "unit.test"
+  idm.mock:
+    image: idm_mock
+    ports:
+      - "999:3000"
+    environment:
+      HOST_NAME: "idm.mock"
+      REDIRECT_HOST: "localhost"
+      TOKEN: "some_made_up_token"
 volumes:
   web_node_modules: {}
   unit_test_node_modules: {}
