@@ -1,0 +1,16 @@
+{
+  "name": "data_transfer",
+  "version": "0.0.1",
+  "description": "a simple application that sends JSON schema validated data to azure storage",
+  "main": "./src/app.js",
+  "dependencies": {
+    "ajv": "^6.11.0",
+    "@azure/storage-blob": "12.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
