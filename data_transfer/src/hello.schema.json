@@ -1,0 +1,13 @@
+{
+  "$id": "https://apply-for-environmental-permit.service.gov.uk/hello.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Hello World",
+  "description": "A simple hello-world message from node to dynamics",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "description": "A mgreeting."
+    }
+  }
+}
