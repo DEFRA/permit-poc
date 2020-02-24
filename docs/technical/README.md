@@ -7,6 +7,7 @@
   - [Doocker](docker)
   - [Docker Compose](docker-compose)
 - [Continuous Integration](./ci.md)
+- [Coupling][./coupling.md]
 - [To Do](to-do)
   Technical topics to return to, shortcuts taken, things we didn't
   have time for.
