@@ -7,6 +7,8 @@
 - [Getting Started](#getting-started)
 - [Technical Notes](./docs/technical/)
   - Notes on how to build, run and modify the apps in this project.
+  - Continuous Integration
+  - Coupling
   - Technical topics to return to.
   - Food for thought
   - Reference
@@ -54,6 +56,3 @@ docker-compose up
 
 If all goes to plan, the app should be visible at:
 [http://localhost](http://localhost)
-
-
-

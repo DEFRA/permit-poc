@@ -25,4 +25,11 @@ As an illustration, a "hello world" message is defined as a
 [JSON-Schema Draft 7](../../data_transfer/src/hello.schema.json)
 
 We can use this to run validation and as a contract between this
-and down-stream services. See [app.js](data_transfer/src/app.js)
+and down-stream services. See [app.js](../../data_transfer/src/app.js)
+
+To demonstrate run the following from this repository's root
+directory:
+
+```sh
+make run_date_transfer_container
+```
