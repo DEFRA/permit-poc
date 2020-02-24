@@ -27,9 +27,14 @@ As an illustration, a "hello world" message is defined as a
 We can use this to run validation and as a contract between this
 and down-stream services. See [app.js](../../data_transfer/src/app.js)
 
+For a temporary medium for data exchange we're using
+[Azure's Blob Stroage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
+
 To demonstrate run the following from this repository's root
 directory:
 
 ```sh
+# move data_transfer/example-env.txt to data_transfer/.env
+# replace values with creds from Azure
 make run_date_transfer_container
 ```
