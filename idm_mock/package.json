@@ -1,7 +1,7 @@
 {
-  "name": "hapi_poc",
+  "name": "idm_mock",
   "version": "0.0.1",
-  "description": "a simple hapi js application",
+  "description": "a simple hapi js application that mocks the functinoality of the IDM service",
   "main": "./src/app.js",
   "dependencies": {
     "@hapi/code": "^8.0.1",

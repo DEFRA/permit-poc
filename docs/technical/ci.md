@@ -32,6 +32,9 @@ make start_prod_mode
 # wipe the entire docker environment (whole machine
 make wipe
 
+# validate and send a message to Azure blob storage
+make run_date_transfer_container
+
 # rebuild clean
 make clean
 ```
