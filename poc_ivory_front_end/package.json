@@ -13,6 +13,7 @@
   "author": "Ben Surgison",
   "license": "ISC",
   "dependencies": {
+    "@envage/hapi-govuk-question-page": "0.0.2",
     "@hapi/boom": "^9.0.0",
     "@hapi/crumb": "^7.3.2",
     "@hapi/good": "^9.0.0",
@@ -27,7 +28,7 @@
     "defra-hapi-route-flow": "git+https://github.com/DEFRA/defra-hapi-route-flow.git#v0.1.5",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#master",
     "dotenv": "^8.2.0",
-    "hapi-govuk-frontend": "git+https://github.com/DEFRA/hapi-govuk-frontend.git#master",
+    "hapi-govuk-frontend": "git+https://github.com/DEFRA/hapi-govuk-frontend.git#waste-permits-poc",
     "hapi-robots": "^3.2.0",
     "hapi-version-status": "^2.0.1",
     "js-yaml": "^3.13.1",

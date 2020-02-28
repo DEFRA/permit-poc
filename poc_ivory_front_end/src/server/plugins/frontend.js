@@ -7,6 +7,7 @@ module.exports = {
     assetDirectories: ['public/static', 'public/build'],
     serviceName: 'Front end template demo',
     viewPath: 'src/server/modules',
+    includePaths: ['node_modules/hapi-govuk-frontend/node_modules/govuk-frontend'],
     context: {
       appVersion: pkg.version
     }

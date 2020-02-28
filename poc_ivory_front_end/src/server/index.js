@@ -25,6 +25,7 @@ async function registerPlugins (server) {
   await server.register([
     require('@hapi/inert'),
     require('./plugins/frontend'),
+    require('./plugins/question-page'),
     require('./plugins/version'),
     require('./plugins/flow'),
     require('./plugins/robots'),

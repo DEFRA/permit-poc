@@ -9,6 +9,21 @@ home:
   tags:
     - always
 
+# ========================
+# ===== Test Harness =====
+# ========================
+
+test-harness:
+  path: "/test-harness"
+  handlers: test-harness/test-harness.handlers
+  view: test-harness/test-harness.view
+  tags:
+    - always
+
+
+# =========================
+
+
 apply-for-a-permit:
   path: "/start/start-or-open-saved"
   handlers: apply-for-a-permit/apply-for-a-permit.handlers
