@@ -61,5 +61,7 @@ screen config   |   UI components   |   API contracts
 flow            |                   |
 
 ```
+![whiteboard sketch #1](./config_01.jpg)
 
-![whiteboard sketch](./config_01.jpg)
+Digging further:
+![whiteboard sketch #2](./config_02.jpg)
