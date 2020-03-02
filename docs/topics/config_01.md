@@ -63,5 +63,10 @@ flow            |                   |
 ```
 ![whiteboard sketch #1](./config_01.jpg)
 
-Digging further:
+02/03/2020
+
+Having built two screen-flows, the next phase discussed was further
+defining the boundaries and interfaces between components of the
+system in more detail.
+
 ![whiteboard sketch #2](./config_02.jpg)
