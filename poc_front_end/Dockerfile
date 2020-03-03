@@ -4,7 +4,9 @@ FROM node:13.8.0-alpine3.11
 # and clear cache
 RUN set -euo pipefail \
   && apk update && apk upgrade \
-  && rm -fR /var/cache/apk/*
+  && rm -fR /var/cache/apk/* \
+# Add git to allow npm to be installed from github
+  && apk add --no-cache git
 
 # copy contents of application dir to the container
 COPY ./package.json /home/node/
