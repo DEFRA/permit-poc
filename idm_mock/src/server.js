@@ -1,7 +1,6 @@
 'use strict'
 
 const Hapi = require('@hapi/hapi')
-const OS = require('os')
 
 const server = Hapi.server({
   port: 3000,
@@ -13,9 +12,7 @@ server.route({
   path: '/',
   handler: (request, h) => {
     const token = process.env.TOKEN
-    const redirectPath = 'http://'
-      + process.env.REDIRECT_HOST
-      + (request.query['redirect_path'] || '/login')
+    const redirectPath = request.query.redirect_path
     return `<H1>Hello please login using you "IDM" details</H1>
       <form action="${redirectPath}" method="GET">
         User ID: <input name="user_id" value="" />

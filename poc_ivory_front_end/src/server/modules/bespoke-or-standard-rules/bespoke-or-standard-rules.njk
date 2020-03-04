@@ -1,0 +1,21 @@
+{% extends 'radio-group-layout.njk' %}
+
+{% from "details/macro.njk" import govukDetails %}
+
+{% set detailsHtml %}
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      <a id="hint-link-1" class="govuk-link" href="https://www.gov.uk/guidance/check-if-you-need-an-environmental-permit" target="_blank" rel="noopener noreferrer">read about environmental permits on GOV.UK (opens new tab)</a>
+    </li>
+    <li>
+      <a id="hint-link-2" class="govuk-link" href="https://www.gov.uk/government/organisations/environment-agency#org-contacts" target="_blank" rel="noopener noreferrer">contact the Environment Agency (opens new tab)</a>
+    </li>
+  </ul>
+{% endset %}
+
+{% block formContentFooter %}
+  {{ govukDetails({
+    summaryText: "I don't know",
+    html: detailsHtml
+  }) }}
+{% endblock %}

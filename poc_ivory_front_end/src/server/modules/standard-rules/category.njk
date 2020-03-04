@@ -1,0 +1,21 @@
+{% extends 'radio-group-layout.njk' %}
+
+{% from "details/macro.njk" import govukDetails %}
+
+{% set detailsHtml %}
+  <p id="hint-paragraph-1" class="govuk-body"><a id="hint-link" class="govuk-link" href="https://www.gov.uk/topic/environmental-management/environmental-permits">Read more about waste environmental permits on GOV.UK</a> or contact the Environment Agency.</p>
+  <p id="hint-paragraph-2" class="govuk-body">We are open Monday to Friday, 8am to 6pm.</p>
+  <p class="govuk-body">
+    <span id="hint-email">Email <a id="hint-mail-link" class="govuk-link" href="mailto:enquiries@environment-agency.gov.uk">enquiries@environment-agency.gov.uk</a></span><br>
+    <span id="hint-telephone">Telephone 03708 506 506</span><br>
+    <span id="hint-outside-uk-telephone">Telephone from outside the UK +44 (0) 114 282 5312</span><br>
+    <span id="hint-minicom">Minicom (for the hard of hearing) 03702 422 549</span>
+  </p>
+{% endset %}
+
+{% block formContentFooter %}
+  {{ govukDetails({
+    summaryText: "I cannot find the permit I need",
+    html: detailsHtml
+  }) }}
+{% endblock %}
