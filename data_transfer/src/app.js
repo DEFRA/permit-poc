@@ -2,8 +2,8 @@
 
 const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob")
 const Ajv = require("ajv")
-const schema = require("./hello.schema.json")
-const message = require("./hello.message.json")
+const schema = require("./partial.application.json")
+const message = require("./partial.application.schema.json")
 
 async function sendToDynamics(obj, label) {
   const content = JSON.stringify(obj)
