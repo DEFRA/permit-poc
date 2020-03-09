@@ -1,0 +1,12 @@
+{
+  "permitType": "standard-rules",
+  "permitCategory": "vehicle-dismantling",
+  "standardRule": "sr2015-no-13",
+  "address": {
+    "addressLine1": "Site Rd",
+    "addressLine2": "",
+    "town": "Bristol",
+    "county": "",
+    "postcode": "BS1 5AH"
+ }
+}

@@ -29,7 +29,7 @@ build_clean_data_transfer:
 	docker run -i data_transfer /bin/cat /home/node/package.json > ./data_transfer/package.json
 	docker run -i data_transfer /bin/cat /home/node/npm-shrinkwrap.json > ./data_transfer/npm-shrinkwrap.json
 
-run_date_transfer_container:
+run_data_transfer_container:
 	docker run \
 		--env-file ./data_transfer/.env \
 		-v ${PWD}/data_transfer/src:/home/node/src \
