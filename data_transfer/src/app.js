@@ -2,8 +2,8 @@
 
 const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob")
 const Ajv = require("ajv")
-const schema = require("./partial.application.json")
-const message = require("./basic.partial.application.schema.json")
+const message = require("./partial.application.json")
+const schema = require("./basic.partial.application.schema.json")
 
 async function sendToDynamics(obj, label) {
   const content = JSON.stringify(obj)
@@ -30,9 +30,10 @@ async function main() {
     try {
       if (validateMessage()) {
         console.log('SUCESS, MESSAGE VALID')
-        await sendToDynamics(schema, 'schema')
+        //await sendToDynamics(schema, 'schema')
+        //console.log('SUCCESS, SCHEMA SENT')
         await sendToDynamics(message, 'message')
-        console.log('SUCCESS, SCHEMA AND MESSAGE SENT')
+        console.log('SUCCESS, MESSAGE SENT')
         process.exit(0)
       } else {
         console.error('Invalid message')

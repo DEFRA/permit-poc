@@ -3,10 +3,10 @@
   "permitCategory": "vehicle-dismantling",
   "standardRule": "sr2015-no-13",
   "address": {
-    "addressLine1": "Site Rd",
-    "addressLine2": "",
+    "addressLine1": "Temple Quay House",
+    "addressLine2": "Temple Quay",
     "town": "Bristol",
-    "county": "",
-    "postcode": "BS1 5AH"
+    "county": "Bristol",
+    "postcode": "BS1 6EA"
  }
 }
