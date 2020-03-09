@@ -1,6 +1,10 @@
 # Test Automation
 
 
+- [Current Issues](#current-issues)
+- [Approaches to Try](#approaches-to-try)
+- [Demo Proposal](#demo-proposal)
+
 ## Current Issues
 
 The bulk of the functional UI testing is performed manually. This
@@ -50,3 +54,23 @@ Links:
     - [Travis CI](https://docs.travis-ci.com/user/docker/#using-docker-compose)
   - [Cypress UI from Docker Example](https://github.com/bahmutov/cypress-open-from-docker-compose)
 - [Server Spec](https://www.cypress.io/how-it-works)
+
+## Demo Proposal
+
+Discussion inside the team and with the wider dev and testing
+community have come to the following consensus:
+
+Cypress is worth investigating as it has:
+  - tighter integration with current tooling (JS, docker);
+  - should take some of the burden off QA and allow developers to
+    "own" more of the test flow;
+  - gives us an options to run the "test pyramid" using one tool.
+
+We aim to create a containerised demo which can:
+
+- run unit tests
+- run a local integration test
+- run an automated UI test
+
+This should give us a better idea of the work flow and allow us to
+demonstrate its functionality to the rest of the team.
