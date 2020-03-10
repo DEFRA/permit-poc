@@ -1,0 +1,12 @@
+
+contact:
+  path: ""
+  module: contact
+  next: date-of-birth
+
+
+date-of-birth:
+  title: Please enter the director's date of birth
+  path: "/date-of-birth"
+  route: director-date-of-birth.route
+  next: return

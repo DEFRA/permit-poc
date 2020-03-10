@@ -1,0 +1,22 @@
+---
+sr2009-no-08:
+  label: Management of inert wastes and unpolluted soil at mines and quarries
+  ref: SR2009 No 08
+  online: false
+
+sr2014-no-02:
+  label: The management of extractive waste, not including a waste facility, generated from onshore oil and gas prospecting without well stimulation
+  ref: SR2014 No 2
+  online: true
+
+sr2015-no-01:
+  label: The management of extractive waste, not including a waste facility, generated from onshore oil and gas prospecting excluding hydraulic fracturing
+  hint: Only the activities described in 'Ref. WMP3'
+  ref: SR2015 No 1
+  online: false
+
+sr2015-no-02:
+  label: Storage and handling of crude oil from onshore oil and gas - installation
+  hint: Storage capacity limited to 500 tonnes
+  ref: SR2015 No 2
+  online: false

@@ -1,0 +1,8 @@
+**/.ash_history
+**/.config
+**/.npm
+**/node_modules
+**/public
+**.DS_Store
+**.idea
+**.env

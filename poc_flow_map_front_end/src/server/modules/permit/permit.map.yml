@@ -1,0 +1,34 @@
+
+type:
+  path: "/type"
+  route: permit-type.route
+  next:
+    query: permitType
+    when:
+      'standard-rule': standard-rule
+      'bespoke': bespoke
+
+
+standard-rule:
+  path: "/standard-rule"
+  module: standard-rule
+  next:
+    query: isOnline
+    when:
+      'yes': return
+      'no': apply-offline
+
+
+bespoke:
+  path: "/bespoke"
+  module: bespoke
+  next:
+    query: isOnline
+    when:
+      'yes': return
+      'no': apply-offline
+
+
+apply-offline:
+  path: "/apply-offline"
+  route: apply-offline.route

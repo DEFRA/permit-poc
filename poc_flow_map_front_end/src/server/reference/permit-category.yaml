@@ -1,0 +1,52 @@
+---
+anaerobic-digestion:
+  label: Anaerobic digestion including storing digestate
+  online: false
+
+vehicle-dismantling:
+  label: Car and vehicle dismantling
+  online: true
+
+biogas:
+  label: Composting, sewage or sludge treatment, biogas
+  online: false
+
+deposit-for-recovery:
+  label: Deposit for recovery
+  online: false
+
+electricity-insulating-oil-storage:
+  label: Electrical insulating oil storage
+  online: false
+
+flood-risk:
+  label: Flood risk activities
+  online: false
+
+scrap-metal:
+  label: Metal recycling, scrap metal and WEEE - not cars or vehicles
+  online: false
+
+mining:
+  label: Mining, oil and gas
+  online: true
+
+mobile-plant:
+  label: Mobile plant for land-spreading or treatment
+  online: false
+
+radioactive-non-nuclear:
+  label: Radioactive substances for non-nuclear sites
+  online: false
+
+storage-of-waste:
+  label: Storage or treatment of waste - recycling, dredgings, clinical, soil or wood treatment
+  online: false
+
+waste-transfer-station:
+  label: Waste transfer station or amenity site with or without treatment
+  online: false
+
+water-discharges:
+  label: Water discharges
+  online: false
