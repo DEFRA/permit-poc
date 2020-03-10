@@ -1,1 +1,1 @@
-module.exports = { plugin: require('hapi-govuk-question-page') }
+module.exports = { plugin: require('@envage/hapi-govuk-question-page') }
