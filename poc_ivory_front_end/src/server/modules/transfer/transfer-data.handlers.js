@@ -36,14 +36,16 @@ function validateMessage (message) {
 }
 
 async function transferData (message) {
-  logger.info('ATTEMPT TO VALIDATE USING JSON_SCHEMA AND SEND TO DYNAMICS')
   try {
+    logger.info('Validating message...')
     if (validateMessage(message)) {
-      logger.info('SUCESS, MESSAGE VALID')
+      logger.info('Message valid')
       // await sendToDynamics(schema, 'schema')
       // logger.info('SUCCESS, SCHEMA SENT')
-      await sendToDynamics(message, 'message')
-      logger.info('SUCCESS, MESSAGE SENT')
+      logger.info('Sending message...')
+      // await sendToDynamics(message, 'message')
+      logger.info('Message sent')
+      logger.info(message)
     } else {
       logger.error('Invalid message')
     }

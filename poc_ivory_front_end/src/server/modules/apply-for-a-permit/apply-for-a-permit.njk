@@ -1,8 +1,21 @@
 {% extends 'radio-group-layout.njk' %}
 
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+
 {% block formContentFooter %}
   <p class="govuk-body">
     When you apply for a permit you will need to give us some personal data such as your email address or date of birth.<br>
     <a id="hint-link" class="govuk-link" href="/information/privacy" target="_blank" rel="noopener noreferrer">Privacy: how we use your personal information (opens new tab)</a>
   </p>
+{% endblock %}
+
+{% block contentFooter %}
+{% set bannerHtml %}
+<h2 class="govuk-heading-m">This is a test</h2>
+{% endset %}
+
+{{ mojBanner({
+type: 'information',
+html: bannerHtml
+}) }} 
 {% endblock %}
