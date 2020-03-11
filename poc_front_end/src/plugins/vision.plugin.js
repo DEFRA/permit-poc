@@ -23,7 +23,7 @@ module.exports = {
       }
     },
     path: [
-      'node_modules/hapi-govuk-question-page'
+      'node_modules/@envage/hapi-govuk-question-page'
     ],
     isCached: false,
     context: {
