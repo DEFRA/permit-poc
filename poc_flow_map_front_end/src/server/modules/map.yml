@@ -1,0 +1,27 @@
+home:
+  path: "/"
+  route: home.route
+  next: permit
+
+
+permit:
+  path: "/permit"
+  module: permit
+  next: applicant
+
+
+applicant:
+  path: "/applicant"
+  module: contact
+  next: director
+
+
+director:
+  path: "/director"
+  module: director
+  next: complete
+
+
+complete:
+  path: "/complete"
+  route: complete.route

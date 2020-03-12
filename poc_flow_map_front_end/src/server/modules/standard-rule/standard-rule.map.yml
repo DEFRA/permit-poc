@@ -1,0 +1,17 @@
+
+category:
+  title: What do you want the permit for?
+  path: "/category"
+  route: standard-rule-category.route
+  next:
+    query: isOnline
+    when:
+      'yes': standard-rule-select
+      'no': return
+
+
+standard-rule-select:
+  title: Select a permit
+  path: "/{permitCategory}"
+  route: standard-rule-select.route
+  next: return

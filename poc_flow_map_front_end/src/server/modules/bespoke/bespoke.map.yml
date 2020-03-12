@@ -1,0 +1,6 @@
+
+facility-type:
+  title: What type of facility do you want the permit for?
+  path: "/facility-type"
+  route: ../common/common.route
+  next: return
