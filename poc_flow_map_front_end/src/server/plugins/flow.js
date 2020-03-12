@@ -1,5 +1,6 @@
 const Cache = require('../utils/cache')
 const Boom = require('@hapi/boom')
+const Hoek = require('@hapi/hoek')
 const { logger } = require('defra-logging-facade')
 const yaml = require('js-yaml')
 const fs = require('fs')
@@ -42,7 +43,9 @@ function registerRoutes (server, map, options = {}) {
         .flat()
         .map((config) => {
           methods.push(config.method)
-          return { ...config, path, options }
+          config = { ...config, path }
+          Hoek.merge(config, { options })
+          return config
         })
         .forEach((config) => {
           try {

@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-nodemon -- watch $HOME/src/app -e js,html,yml,njk src/app.js
+nodemon -- watch $HOME/src/app -e js,html,yml,yaml,njk src/app.js
 

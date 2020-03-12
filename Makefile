@@ -12,7 +12,7 @@ clean: wipe build_clean
 say_hello:
 	@echo "let's build the POC"
 
-build_clean: build_clean_prod_poc_front_end build_clean_prod_idm build_clean_data_transfer build_clean_prod_poc_ivory_front_end
+build_clean: build_clean_prod_poc_front_end build_clean_prod_idm build_clean_data_transfer build_clean_prod_poc_ivory_front_end build_clean_prod_poc_flow_map_front_end
 
 build_clean_prod_poc_front_end:
 	docker build --no-cache -t poc_front_end:latest poc_front_end/
@@ -33,6 +33,11 @@ build_clean_prod_poc_ivory_front_end:
 	docker build --no-cache -t poc_ivory_front_end:latest poc_ivory_front_end/
 	docker run -i poc_ivory_front_end /bin/cat /home/node/package.json > ./poc_ivory_front_end/package.json
 	docker run -i poc_ivory_front_end /bin/cat /home/node/npm-shrinkwrap.json > ./poc_ivory_front_end/npm-shrinkwrap.json
+
+build_clean_prod_poc_flow_map_front_end:
+	docker build --no-cache -t poc_flow_map_front_end:latest poc_flow_map_front_end/
+	docker run -i poc_flow_map_front_end /bin/cat /home/node/package.json > ./poc_flow_map_front_end/package.json
+	docker run -i poc_flow_map_front_end /bin/cat /home/node/npm-shrinkwrap.json > ./poc_flow_map_front_end/npm-shrinkwrap.json
 
 run_data_transfer_container:
 	docker run \

@@ -1,0 +1,74 @@
+{% extends 'form-layout.njk' %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block formContent %}
+
+{% call govukFieldset({
+  legend: {
+    text: "What is your address?",
+    classes: "govuk-fieldset__legend--xl",
+    isPageHeading: true
+  } }) %}
+
+  {{ govukInput({
+    label: {
+      html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+    },
+    id: "addressLine1",
+    name: "addressLine1",
+    autocomplete: "address-line1",
+    value: value['addressLine1'],
+    errorMessage: errors['addressLine1']
+  }) }}
+
+  {{ govukInput({
+    label: {
+      html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+    },
+    id: "addressLine2",
+    name: "addressLine2",
+    autocomplete: "address-line2",
+    value: value['addressLine2'],
+    errorMessage: errors['addressLine2']
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "town",
+    name: "town",
+    autocomplete: "address-level2",
+    value: value['town'],
+    errorMessage: errors['town']
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "county",
+    name: "county",
+    value: value['county'],
+    errorMessage: errors['county']
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "postcode",
+    name: "postcode",
+    autocomplete: "postal-code",
+    value: value['postcode'],
+    errorMessage: errors['postcode']
+  }) }}
+
+{% endcall %}
+
+{% endblock %}
