@@ -69,8 +69,6 @@ async function createServer () {
 
   server.events.on('start', () => startHandler(server))
 
-  console.log(process.env.BLOB_CONTAINER_NAME)
-
   return server
 }
 

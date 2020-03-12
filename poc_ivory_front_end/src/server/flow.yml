@@ -189,3 +189,4 @@ completed:
   title: Application complete
   handlers: completed/completed.handlers
   view: completed/completed
+  
