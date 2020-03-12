@@ -40,6 +40,8 @@ services:
       - ${PWD}/poc_ivory_front_end/src:/home/node/src
       # use a volume to persist node_modules, prevents leakage to host
       - web_ivory_node_modules:/home/node/node_modules
+    env_file:
+      - ${PWD}/poc_ivory_front_end/.env
     environment:
       HOST_NAME: "web.ivory"
       LOG_LEVEL: "debug"

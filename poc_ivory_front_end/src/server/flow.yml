@@ -150,7 +150,7 @@ cost-and-activities:
   title: Confirm activities and costs
   handlers: cost-and-activities/cost-and-activities.handlers
   view: cost-and-activities/cost-and-activities
-  next: task-list
+  next: address-manual
 
 
 # =====================
@@ -175,4 +175,18 @@ address-manual:
   title: Address
   handlers: address/address-manual.handlers
   view: address/address-manual
-  next: task-list
+  next: transfer-data
+
+
+  
+transfer-data:
+  path: "/transfer-data"
+  handlers: transfer/transfer-data.handlers
+  next: completed
+
+completed:
+  path: "/completed"
+  title: Application complete
+  handlers: completed/completed.handlers
+  view: completed/completed
+  
