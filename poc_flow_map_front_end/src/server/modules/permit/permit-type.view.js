@@ -12,6 +12,11 @@ const items = reference.map(({ id, label }) => {
 
 const components = [
   {
+    type: 'MojBanner',
+    bannerType: 'information',
+    content: '<h2 class="govuk-heading-m">This is an MOJ Frontend component</h2>'
+  },
+  {
     type: 'RadiosField',
     name: 'permitType',
     title: 'Select the type of permit you want to apply for',
