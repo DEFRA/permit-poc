@@ -13,6 +13,7 @@
   "author": "Ben Surgison",
   "license": "ISC",
   "dependencies": {
+    "@azure/storage-blob": "^12.1.1",
     "@envage/hapi-govuk-question-page": "git+https://github.com/DEFRA/hapi-govuk-question-page.git#master",
     "@hapi/boom": "^9.0.0",
     "@hapi/crumb": "^7.3.2",

@@ -1,0 +1,35 @@
+{% extends 'layout.njk' %}
+
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errorSummary %}
+        {{ govukErrorSummary(errorSummary) }}
+      {% endif %}
+
+      {% if showTitle %}
+        <h1 class="govuk-heading-xl">
+          {% if pageCaption %}
+            <span class="govuk-caption-xl">{{pageCaption}}</span>
+          {% endif %}
+          {{pageTitle}}
+        </h1>
+      {% endif %}
+
+      <form method="post" autocomplete="off" novalidate>
+        {% block formContent %}{% endblock %}
+
+        {% block continueButton %}
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+        {% endblock %}
+      </form>
+
+      <pre>{{ value | dump(2) | safe }}</pre>
+    </div>
+  </div>
+{% endblock %}

@@ -6,7 +6,7 @@ module.exports = {
     assetPath: '/assets',
     assetDirectories: ['public/static', 'public/build'],
     serviceName: 'Front end template demo',
-    viewPath: 'node_modules/@envage/hapi-govuk-question-page',
+    viewPath: 'src/server/modules',
     includePaths: ['node_modules/hapi-govuk-frontend/node_modules/govuk-frontend'],
     context: {
       appVersion: pkg.version
