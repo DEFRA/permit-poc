@@ -1,3 +1,4 @@
+const Hoek = require('@hapi/hoek')
 
 const mapErrorsForDisplay = (details, messages) => {
   return {
@@ -27,8 +28,10 @@ function formatErrors (result, messages) {
   return { value, errorSummary, errors }
 }
 
-module.exports = (view, messages = {}) => async function (request, h, errors) {
-  return h.view(view, await formatErrors(errors, messages))
+module.exports = (view, viewData, messages = {}) => async function (request, h, errors) {
+  // Merge the viewData with the formatted error messages
+  Hoek.merge(viewData, await formatErrors(errors, messages))
+  return h.view(view, viewData)
     .code(400)
     .takeover()
 }

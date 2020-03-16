@@ -1,3 +1,18 @@
+apply:
+  path: "/apply"
+  route: apply.route
+  next:
+    query: loginRequired
+    when:
+      yes: login
+      no: type
+
+
+login:
+  path: "/login"
+  module: login
+  next: type
+
 
 type:
   path: "/type"
@@ -5,8 +20,8 @@ type:
   next:
     query: permitType
     when:
-      'standard-rule': standard-rule
-      'bespoke': bespoke
+      standard-rule: standard-rule
+      bespoke: bespoke
 
 
 standard-rule:
@@ -15,8 +30,8 @@ standard-rule:
   next:
     query: isOnline
     when:
-      'yes': return
-      'no': apply-offline
+      yes: return
+      no: apply-offline
 
 
 bespoke:
@@ -25,8 +40,8 @@ bespoke:
   next:
     query: isOnline
     when:
-      'yes': return
-      'no': apply-offline
+      yes: return
+      no: apply-offline
 
 
 apply-offline:

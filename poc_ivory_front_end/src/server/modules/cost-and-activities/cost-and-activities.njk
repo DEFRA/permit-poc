@@ -1,9 +1,0 @@
-{% extends 'layouts/standard-layout.njk' %}
-
-{% from "table/macro.njk" import govukTable %}
-
-{% block formContent %}
-{{ govukTable({
-  rows: viewData.rows
-}) }}
-{% endblock %}
