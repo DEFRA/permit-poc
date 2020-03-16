@@ -1,0 +1,14 @@
+login:
+  path: ""
+  route: login.route
+  next: login-result
+
+login-result:
+  path: "/result"
+  route: login-result.route
+  next: login-success
+
+login-success:
+  path: "/success"
+  route: login-success.route
+  next: return

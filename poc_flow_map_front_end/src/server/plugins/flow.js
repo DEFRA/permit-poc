@@ -26,6 +26,10 @@ function getQueryData (request) {
   return Cache.get(request, 'QueryData')
 }
 
+function getRoute (id) {
+  return { ...routeMap[id], id }
+}
+
 function registerRoutes (server, map, options = {}) {
   return Object.entries(map).map(([id, { path, route }]) => {
     try {
@@ -110,8 +114,11 @@ function loadMap (parentModule = '', parentConfig = {}) {
 async function handlePostHandler (request, h) {
   const route = getCurrent(request)
   const { next = '', id, path } = route
+  const { response = {} } = request
+  const { variety, statusCode = 500 } = response
 
-  if (request.response.variety === 'view') {
+  // Continue if a view or a redirect is returned
+  if (variety === 'view' || statusCode === 302) {
     return h.continue
   }
 
@@ -196,3 +203,4 @@ module.exports = {
 module.exports.setQueryData = setQueryData
 module.exports.getQueryData = getQueryData
 module.exports.getCurrent = getCurrent
+module.exports.getRoute = getRoute

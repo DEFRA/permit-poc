@@ -2,13 +2,14 @@ const Application = require('../../dao/application')
 const Joi = require('@hapi/joi')
 const failWith = require('../../utils/validation')
 const view = 'address/address-entry.njk'
+const pageHeading = 'Please enter your address'
 
 module.exports = [{
   method: 'GET',
   handler: async function (request, h) {
     const { address = {} } = await Application.get(request)
     return h.view(view, {
-      pageHeading: 'Please enter your address',
+      pageHeading,
       value: address
     })
   }
@@ -28,7 +29,7 @@ module.exports = [{
         county: Joi.string().allow('').trim(),
         postcode: Joi.string().trim().uppercase().max(8).regex(/^[a-z0-9\s]+$/i).required()
       }),
-      failAction: failWith(view, {
+      failAction: failWith(view, { pageHeading }, {
         addressLine1: {
           'string.empty': 'The building and street must be entered'
         },
