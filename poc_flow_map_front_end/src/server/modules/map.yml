@@ -36,4 +36,4 @@ transfer:
 
 complete:
   path: "/complete"
-  route: complete.route
+  module: complete
