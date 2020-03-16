@@ -1,0 +1,25 @@
+{% extends 'form-layout.njk' %}
+
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% block formContent %}
+
+{% call govukFieldset({
+  legend: {
+    text: pageHeading,
+    classes: "govuk-fieldset__legend--xl",
+    isPageHeading: true
+  } }) %}
+
+{{ govukFileUpload({
+  id: "upload-id",
+  name: "upload-name",
+  label: {
+    text: "Upload a file"
+  }
+}) }}
+
+{% endcall %}
+
+{% endblock %}

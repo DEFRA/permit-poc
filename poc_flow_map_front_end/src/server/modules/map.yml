@@ -7,6 +7,12 @@ home:
 permit:
   path: "/permit"
   module: permit
+  next: upload
+
+
+upload:
+  path: "/upload"
+  module: upload
   next: address
 
 
