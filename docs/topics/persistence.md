@@ -1,6 +1,7 @@
 # Storage and Persistence
 
 - [Overview](#overview)
+- [External and shared data](#external-and-shared-data)
 - [All in one](#all-in-one)
 - [Two stores](#two-stores)
 - [Decisions](#decisions)
@@ -44,8 +45,23 @@ Considerations:
 
 There are two approaches under consideration so far:
 
+### External and shared data
 
-# All in one
+
+There will also be data that is relevant to applications pre and
+post submission (user IDs from IDM or waste-codes, for example).
+
+As these represent dependencies that would be shared between
+services (and would be a point of failure should one service make a
+change not reflected in the other) we are thinking of storing these
+in git repositories (to make a crude API using json schema and pull
+requests to act as a review process), these could later be replaced
+with more fully featured services.
+
+Using git repos would allow two teams to share information _and_
+ownership, with minimal process and additional infrastructure.
+
+## All in one
 
 Ideally, this service will be composed of as few dependencies as
 possible. In this spirit storing all the data using one method
@@ -65,7 +81,7 @@ easy access in AWS is [S3](https://aws.amazon.com/s3/)
 As we are using JSON Schema to define our API contracts we could
 use S3 to store the application data.
 
-# Two Stores
+## Two Stores
 
 As these are two distinct classes of data we could use:
 
@@ -80,7 +96,7 @@ Managing two data stores would add complexity to a few areas:
 - infrastructure (dev, test, prod)
 - maintenance and management (test data, version control etc...)
 
-# Decisions
+## Decisions
 
 - 12/03/2020 for this POC, the main aim is to answer questions
   around the internal structure of our service and development

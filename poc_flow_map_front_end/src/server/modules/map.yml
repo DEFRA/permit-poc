@@ -7,18 +7,30 @@ home:
 permit:
   path: "/permit"
   module: permit
-  next: applicant
+  next: address
 
 
-applicant:
-  path: "/applicant"
-  module: contact
-  next: director
+address:
+  path: "/address"
+  module: address
+  next: transfer
 
 
-director:
-  path: "/director"
-  module: director
+#applicant:
+#  path: "/applicant"
+#  module: contact
+#  next: director
+#
+#
+#director:
+#  path: "/director"
+#  module: director
+#  next: complete
+
+
+transfer:
+  path: "/transfer"
+  module: transfer
   next: complete
 
 

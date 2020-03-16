@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@envage/hapi-govuk-question-page": "github:StuAA78/hapi-govuk-question-page#moj-banner",
+    "@azure/storage-blob": "^12.1.1",
     "@hapi/boom": "^9.0.0",
     "@hapi/crumb": "^7.3.2",
     "@hapi/good": "^9.0.0",
