@@ -2,8 +2,18 @@
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{%- from "moj/components/banner/macro.njk" import mojBanner -%}
+
+{% set bannerHtml %}
+  <h2 class="govuk-heading-m">This is an MOJ component in Nunjucks</h2>
+{% endset %}
 
 {% block formContent %}
+
+{{ mojBanner({
+  type: 'information',
+  html: bannerHtml
+}) }} 
 
 {% call govukFieldset({
   legend: {
