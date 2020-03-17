@@ -1,4 +1,4 @@
-const { getCurrent } = require('../../plugins/flow')
+const { getCurrent } = require('hapi-govuk-journey-map')
 
 module.exports = [
   {

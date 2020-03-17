@@ -29,6 +29,7 @@
     "dotenv": "^8.2.0",
     "glob": "^7.1.6",
     "hapi-govuk-frontend": "git+https://github.com/DEFRA/hapi-govuk-frontend.git#waste-permits-poc",
+    "hapi-govuk-journey-map": "git+https://github.com/DEFRA/hapi-govuk-journey-map.git#master",
     "hapi-robots": "^3.2.0",
     "js-yaml": "^3.13.1",
     "nested-property": "^2.0.0",

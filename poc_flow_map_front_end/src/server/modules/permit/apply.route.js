@@ -1,4 +1,4 @@
-const { setQueryData, getQueryData } = require('../../plugins/flow')
+const { setQueryData, getQueryData } = require('hapi-govuk-journey-map')
 
 module.exports = {
   method: ['GET', 'POST'],

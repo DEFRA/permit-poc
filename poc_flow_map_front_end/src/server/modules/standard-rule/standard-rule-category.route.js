@@ -1,5 +1,5 @@
 const Application = require('../../dao/application')
-const { setQueryData } = require('../../plugins/flow')
+const { setQueryData } = require('hapi-govuk-journey-map')
 
 const { load } = require('../../utils/reference')
 
