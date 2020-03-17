@@ -1,10 +1,9 @@
 const Boom = require('@hapi/boom')
-const { BlobServiceClient } = require('@azure/storage-blob')
-const Ajv = require('ajv')
 const { logger } = require('defra-logging-facade')
-const { AZURE_STORAGE_CONNECTION_STRING, BLOB_CONTAINER_NAME } = process.env
 const Application = require('../../dao/application.js')
 const schema = require('../../../basic.partial.application.schema.json')
+
+const { sendToDynamics, validateMessage } = require('../../utils/transfer')
 
 module.exports = {
   method: 'GET',
@@ -18,32 +17,19 @@ module.exports = {
   }
 }
 
-async function sendToDynamics (obj, label) {
-  const content = JSON.stringify(obj)
-
-  const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING)
-  const containerClient = blobServiceClient.getContainerClient(BLOB_CONTAINER_NAME)
-  const blobName = label + new Date().getTime()
-  const blockBlobClient = containerClient.getBlockBlobClient(blobName)
-  const uploadResult = await blockBlobClient.upload(content, content.length)
-  logger.info(`Upload block blob successfully: ${uploadResult.requestId}`)
-}
-
-function validateMessage (message) {
-  const ajv = new Ajv()
-  const validate = ajv.compile(schema)
-  return validate(message)
-}
-
 async function transferData (message) {
   try {
     logger.info('Validating message...')
-    if (validateMessage(message)) {
+    if (validateMessage(message, schema)) {
       logger.info('Message valid')
-      // await sendToDynamics(schema, 'schema')
+      // const schemaObj = JSON.stringify(schema)
+      // await sendToDynamics(schemaObj, 'schema')
       // logger.info('SUCCESS, SCHEMA SENT')
       logger.info('Sending message...')
-      await sendToDynamics(message, 'message')
+      const messageObj = JSON.stringify(message)
+      const result = await sendToDynamics(messageObj, 'message')
+      logger.info('Result of send:')
+      logger.info(result)
       logger.info('Message sent')
       logger.info(message)
     } else {

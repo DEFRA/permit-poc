@@ -40,6 +40,8 @@ services:
       - ${PWD}/poc_flow_map_front_end/src:/home/node/src
       # use a volume to persist node_modules, prevents leakage to host
       - web_flow_map_node_modules:/home/node/node_modules
+    env_file:
+      - ${PWD}/poc_flow_map_front_end/.env
     environment:
       HOST_NAME: "web.flow"
       LOG_LEVEL: "debug"
