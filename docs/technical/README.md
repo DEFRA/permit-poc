@@ -8,6 +8,7 @@
   - [Docker Compose](docker-compose)
 - [Continuous Integration](./ci.md)
 - [Coupling](./coupling.md)
+- [Journey Flow](./journey-flow.md)
 - [MOJ Frontend](./moj-frontend.md)
 - [To Do](to-do)
   Technical topics to return to, shortcuts taken, things we didn't

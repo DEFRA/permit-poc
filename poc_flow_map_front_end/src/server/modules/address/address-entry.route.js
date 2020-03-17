@@ -1,7 +1,7 @@
 const Application = require('../../dao/application')
 const Joi = require('@hapi/joi')
 const failWith = require('../../utils/validation')
-const view = 'address/address-entry.njk'
+const view = 'address/address-entry.view.njk'
 const pageHeading = 'Please enter your address'
 
 module.exports = [{

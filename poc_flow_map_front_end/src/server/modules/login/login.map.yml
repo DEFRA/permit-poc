@@ -1,3 +1,5 @@
+--- # Login map
+
 login:
   path: ""
   route: login.route
