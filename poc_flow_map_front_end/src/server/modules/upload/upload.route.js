@@ -12,8 +12,21 @@ module.exports = [{
 }, {
   method: 'POST',
   handler: async function (request, h) {
-    console.log(request.payload)
-    return h.continue // TODO: Loop back while user wants to upload more files
+    console.log(request)
+
+    // TODO: use utils/transfer#sendToDynamics to send file to Dynamics
+
+    // TODO: save Dynamics blobName to application, eg:
+    // {
+    //   files: [
+    //     { id: 'file blobName...'},
+    //     { id: 'file blobName...'}
+    //   ], etc...
+    // }
+    
+    // TODO: Loop back while user wants to upload more files
+
+    return h.continue
   },
   options: {
     // validate: {
