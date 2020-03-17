@@ -19,7 +19,7 @@
         </h1>
       {% endif %}
 
-      <form method="post" autocomplete="off" novalidate>
+      <form method="post" autocomplete="off" novalidate {% block formOptions %}{% endblock %}>
         {% block formContent %}{% endblock %}
 
         {% block continueButton %}

@@ -2,33 +2,41 @@ const Application = require('../../dao/application')
 // const Joi = require('@hapi/joi')
 // const failWith = require('../../utils/validation')
 const view = 'upload/upload.njk'
+const { sendToDynamics } = require('../../utils/transfer')
+const { logger } = require('defra-logging-facade')
 
 module.exports = [{
   method: 'GET',
   handler: async function (request, h) {
-    // TODO: Get current uploaded files
-    return h.view(view, { pageHeading: 'Upload a file' })
+    // formOptions is set so we can pass through the required parameter for an upload form
+    return h.view(view, { pageHeading: 'Upload a file', formOptions: 'enctype="multipart/form-data"' })
   }
 }, {
   method: 'POST',
   handler: async function (request, h) {
-    console.log(request)
+    const { upload } = request.payload
+    const data = upload.read()
+    const sendResult = await sendToDynamics(data, 'file')
 
-    // TODO: use utils/transfer#sendToDynamics to send file to Dynamics
+    const { blobName: id } = sendResult
+    const filetype = 'POC demo file'
+    const { filename } = upload.hapi
 
-    // TODO: save Dynamics blobName to application, eg:
-    // {
-    //   files: [
-    //     { id: 'file blobName...'},
-    //     { id: 'file blobName...'}
-    //   ], etc...
-    // }
-    
-    // TODO: Loop back while user wants to upload more files
+    const files = [{ id, filetype, filename }]
+
+    await Application.update(request, { files })
+
+    // TODO: Allow multiple files and loop back while user wants to upload more files
+    // TODO: Change over to MOJ multi file upload component
 
     return h.continue
   },
+  // TODO: Maybe add some basic validation
   options: {
+    payload: {
+      parse: true,
+      output: 'stream',
+    }
     // validate: {
     //   payload: Joi.object({
     //     ...

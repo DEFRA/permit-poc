@@ -42,7 +42,27 @@
           "type": "string"
         }
       }
+    },
+    "files": {
+      "type": "array",
+      "description": "Files uploaded as part of the application",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The blobname returned when saving the file to Dynamics"
+          },
+          "filetype": {
+            "type": "string",
+            "description": "What the file is (eg. air dispersion modelling report)"
+          },
+          "filename": {
+            "type": "string",
+            "description": "The original filename of the uploaded file"
+          }
+        }
+      }
     }
   }
 }
-

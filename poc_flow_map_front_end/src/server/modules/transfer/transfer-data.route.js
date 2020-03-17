@@ -27,7 +27,9 @@ async function transferData (message) {
       // logger.info('SUCCESS, SCHEMA SENT')
       logger.info('Sending message...')
       const messageObj = JSON.stringify(message)
-      await sendToDynamics(messageObj, 'message')
+      const result = await sendToDynamics(messageObj, 'message')
+      logger.info('Result of send:')
+      logger.info(result)
       logger.info('Message sent')
       logger.info(message)
     } else {

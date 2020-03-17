@@ -11,7 +11,7 @@ async function sendToDynamics (content, label) {
   const blockBlobClient = containerClient.getBlockBlobClient(blobName)
   const uploadResult = await blockBlobClient.upload(content, content.length)
   logger.info(`Upload block blob successfully: ${uploadResult.requestId}`)
-  // TODO: return blobName
+  return { blobName, uploadResult }
 }
 
 function validateMessage (message, schema) {
