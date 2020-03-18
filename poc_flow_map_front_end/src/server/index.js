@@ -24,6 +24,7 @@ const serverOptions = {
 async function registerPlugins (server) {
   await server.register([
     require('@hapi/inert'),
+    require('./plugins/ajax-upload'),
     require('./plugins/logging'),
     require('./plugins/frontend'),
     require('./plugins/robots'),

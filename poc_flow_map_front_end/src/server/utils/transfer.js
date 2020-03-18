@@ -14,10 +14,19 @@ async function sendToDynamics (content, label) {
   return { blobName, uploadResult }
 }
 
+async function deleteFromDynamics (blobName) {
+  const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING)
+  const containerClient = blobServiceClient.getContainerClient(BLOB_CONTAINER_NAME)
+  const blockBlobClient = containerClient.getBlockBlobClient(blobName)
+  const deleteResult = await blockBlobClient.delete()
+  logger.info(`Delete block blob successfully: ${deleteResult.requestId}`)
+  return { deleteResult }
+}
+
 function validateMessage (message, schema) {
   const ajv = new Ajv()
   const validate = ajv.compile(schema)
   return validate(message)
 }
 
-module.exports = { sendToDynamics, validateMessage }
+module.exports = { sendToDynamics, deleteFromDynamics, validateMessage }

@@ -18,6 +18,7 @@ module.exports = [{
   handler: async function (request, h) {
     const address = request.payload
     await Application.update(request, { address })
+
     return h.continue
   },
   options: {
