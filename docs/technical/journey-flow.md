@@ -147,7 +147,8 @@ module.exports = [{
   method: 'POST',
   handler: async function (request, h) {
     const { contact = {} } = await Application.get(request)
-    contact.name = request.payload
+    const { name = '' }  = request.payload
+    contact.name = name
     await Application.update(request, { contact })
     return h.continue
   }
