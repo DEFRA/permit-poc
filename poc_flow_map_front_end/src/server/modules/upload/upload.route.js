@@ -1,7 +1,7 @@
 const Application = require('../../dao/application')
 // const Joi = require('@hapi/joi')
 // const failWith = require('../../utils/validation')
-const view = 'upload/upload.njk'
+const view = 'upload/upload.view.njk'
 const { sendToDynamics } = require('../../utils/transfer')
 const { logger } = require('defra-logging-facade')
 

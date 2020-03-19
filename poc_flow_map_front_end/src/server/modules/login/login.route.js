@@ -6,7 +6,7 @@ module.exports = [
   {
     method: 'GET',
     handler: function (request, h) {
-      return h.view('login/login.njk', {
+      return h.view('login/login.view.njk', {
         showTitle: true,
         pageTitle: 'Press continue to login'
       })

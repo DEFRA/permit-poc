@@ -1,3 +1,5 @@
+--- # Root map
+
 home:
   path: "/"
   route: home.route

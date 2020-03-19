@@ -37,12 +37,12 @@ async function registerPlugins (server) {
 }
 
 function startHandler (server) {
-  logger.info(`${name} (${version}) is starting...`)
+  logger.info(`(${Date.now()}) ${name} (${version}) is starting...`)
 
   // listen on SIGTERM signal and gracefully stop the server
   process.on('SIGTERM', function () {
     logger.info('Received SIGTERM scheduling shutdown...')
-    logger.info(`${name} (${version}) is stopping...`)
+    logger.info(`(${Date.now()}) ${name} (${version}) is stopping...`)
 
     server.stop({ timeout: 10000 }).then(function (err) {
       logger.info('Shutdown complete')

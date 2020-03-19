@@ -9,6 +9,7 @@
   - Notes on how to build, run and modify the apps in this project.
   - Continuous Integration
   - Coupling
+  - Journey Flow
   - MOJ Frontend
   - Technical topics to return to.
   - Food for thought
