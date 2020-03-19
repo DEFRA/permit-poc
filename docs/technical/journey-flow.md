@@ -95,7 +95,7 @@ As I have included no [branching](#branching) in the above map, I would expect t
 - /applicant/name
 - /applicant/address/search
 - /applicant/address/select
-- /applicant/address/select
+- /applicant/address/entry
 - /applicant/email
 - /complete
 ```
