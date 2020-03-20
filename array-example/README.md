@@ -87,21 +87,19 @@ Possible URLs:
 ```json
 {
   "name": "Mr A B",
-  "friends": {
-    [
-      {
-        "best_friend": {
-          "name": "Mr C D",
-          "friends": {...}
-        }
-      },
-      {
-        "other_friend": {
-          "name": "Mrs E F",
-          "friends": {...}
-        }
+  "friends": [
+    {
+      "best_friend": {
+        "name": "Mr C D",
+        "friends": {...}
       }
-    ]
-  }
+    },
+    {
+      "other_friend": {
+        "name": "Mrs E F",
+        "friends": {...}
+      }
+    }
+  ]
 }
 ```
