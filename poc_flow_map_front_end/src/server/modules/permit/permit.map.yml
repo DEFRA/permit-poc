@@ -13,7 +13,6 @@ apply:
 login:
   path: "/login"
   module: login
-  next: type
 
 
 type:

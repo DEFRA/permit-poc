@@ -30,7 +30,7 @@ async function registerPlugins (server) {
     require('./plugins/cache'),
     // require('./plugins/crumb'),
     require('./plugins/question-page'),
-    require('./plugins/flow'),
+    require('./plugins/journey-map'),
     require('./plugins/back-link'),
     require('blipp')
   ])

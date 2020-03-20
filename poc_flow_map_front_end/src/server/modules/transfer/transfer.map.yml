@@ -3,4 +3,3 @@
 transfer-data:
   path: "/transfer-data"
   route: transfer-data.route
-  next: return

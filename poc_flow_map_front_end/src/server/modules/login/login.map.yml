@@ -1,16 +1,13 @@
 --- # Login map
 
-login:
+entry:
   path: ""
   route: login.route
-  next: login-result
 
-login-result:
+result:
   path: "/result"
   route: login-result.route
-  next: login-success
 
-login-success:
+success:
   path: "/success"
   route: login-success.route
-  next: return

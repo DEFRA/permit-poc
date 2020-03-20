@@ -1,5 +1,5 @@
 const { logger } = require('defra-logging-facade')
-const { getCurrent, getRoute } = require('../../plugins/flow')
+const { getCurrent, getRoute } = require('hapi-govuk-journey-map')
 const idmUrl = process.env.IDM_HOST
 
 module.exports = [
