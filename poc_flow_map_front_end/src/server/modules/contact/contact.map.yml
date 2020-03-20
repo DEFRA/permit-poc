@@ -4,17 +4,14 @@ name:
   title: Please enter your name
   path: "/name"
   route: contact-name.route
-  next: address
 
 
 address:
   path: "/address"
   module: address
-  next: email
 
 
 email:
   title: Please enter your email
   path: "/email"
   route: contact-email.route
-  next: return

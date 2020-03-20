@@ -4,4 +4,3 @@ upload:
   title: Please upload a file
   path: ""
   route: upload.route
-  next: return

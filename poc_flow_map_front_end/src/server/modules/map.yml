@@ -3,25 +3,21 @@
 home:
   path: "/"
   route: home.route
-  next: permit
 
 
 permit:
   path: "/permit"
   module: permit
-  next: upload
 
 
 upload:
   path: "/upload"
   module: upload
-  next: address
 
 
 address:
   path: "/address"
   module: address
-  next: transfer
 
 
 #applicant:
@@ -39,7 +35,6 @@ address:
 transfer:
   path: "/transfer"
   module: transfer
-  next: complete
 
 
 complete:

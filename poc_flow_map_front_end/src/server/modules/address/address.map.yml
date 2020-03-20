@@ -4,18 +4,15 @@ find:
   title: Please enter your postcode
   path: ""
   route: address-find.route
-  next: select
 
 
 select:
   title: Please select your address
   path: "/select"
   route: address-select.route
-  next: entry
 
 
 entry:
   title: Please enter your address
   path: "/entry"
   route: address-entry.route
-  next: return
