@@ -5,11 +5,11 @@
 `name.module.json`
 ```json
 {
-  "module_name": "name"
+  "module_name": "name",
   "inputs": [
     {
       "label": "Title",
-      "type": "enum"
+      "type": "enum",
       "options": ["Mr", "Mrs", "Miss", "Dr"]
     }
     {
@@ -38,21 +38,21 @@
     "module": "name"
   },
   {
-    "token:: "friends"
+    "token": "friends",
     "sub_tasks": [
       "token": "best_friend",
       "sub_tasks": "friendship_group__route.json"
     ]
   },
   {
-    "token:: "friends"
+    "token": "friends",
     "sub_tasks": [
       "token": "other_friend",
       "sub_tasks": "friendship_group__route.json"
     ]
   },
   {
-    "token:: "friends"
+    "token": "friends",
     "sub_tasks": [
       "token": "some_person",
       "sub_tasks": "friendship_group__route.json"
