@@ -34,7 +34,7 @@
 ```json
 [
   {
-    "token": "name"
+    "token": "name",
     "module": "name"
   },
   {
