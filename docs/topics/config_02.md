@@ -1,5 +1,18 @@
 # Array Based Application Flows
 
+This is a _very_ rough sketch of an idea for configuration driven
+multi-step forms.
+
+UI component/module capabilities/contracts are described
+independently of routing (which describes order and direction).
+
+Combining the two gives a verifiable output.
+
+Using the branching method described in other areas it should be
+possible to create, verify and model possible outcomes without
+touching underlying code.
+
+
 ## Modules/Screens
 
 `name.module.json`
