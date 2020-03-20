@@ -15,6 +15,12 @@ touching underlying code.
 
 ## Modules/Screens
 
+These are contracts rather than strictly speaking "config", but
+could be used to generate automated tests.
+
+Also they can help shape the resulting data-structure.
+
+
 `name.module.json`
 ```json
 {
@@ -42,6 +48,8 @@ touching underlying code.
 ```
 
 ## Routing
+
+The intent is to articulate the possible paths through screens with reuse and possible recursive structures. I have not included branches and decsions as they are nicely described [elsewhere](../technical/journey-flow.md#branching)
 
 `friendship_group__route.json`
 ```json
