@@ -40,22 +40,28 @@
   {
     "token": "friends",
     "sub_tasks": [
-      "token": "best_friend",
-      "sub_tasks": "friendship_group__route.json"
+      {
+        "token": "best_friend",
+        "sub_tasks": "friendship_group__route.json"
+      }
     ]
   },
   {
     "token": "friends",
     "sub_tasks": [
-      "token": "other_friend",
-      "sub_tasks": "friendship_group__route.json"
+      {
+        "token": "other_friend",
+        "sub_tasks": "friendship_group__route.json"
+      }
     ]
   },
   {
     "token": "friends",
     "sub_tasks": [
-      "token": "some_person",
-      "sub_tasks": "friendship_group__route.json"
+      {
+        "token": "some_person",
+        "sub_tasks": "friendship_group__route.json"
+      }
     ]
   }
 ]
@@ -82,18 +88,20 @@ Possible URLs:
 {
   "name": "Mr A B",
   "friends": {
-    {
-      "best_friend": {
-        "name": "Mr C D",
-        "friends": {...}
+    [
+      {
+        "best_friend": {
+          "name": "Mr C D",
+          "friends": {...}
+        }
+      },
+      {
+        "other_friend": {
+          "name": "Mrs E F",
+          "friends": {...}
+        }
       }
-    },
-    {
-      "other_friend": {
-        "name": "Mrs E F",
-        "friends": {...}
-      }
-    }
+    ]
   }
 }
 ```
