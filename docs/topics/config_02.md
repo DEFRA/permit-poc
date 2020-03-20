@@ -33,11 +33,11 @@ Also they can help shape the resulting data-structure.
     }
     {
       "label": "First Name",
-      "type: string"
+      "type": "string"
     },
     {
       "label": "Last Name",
-      "type: string"
+      "type": "string"
     }
   ],
   "outputs": {
@@ -100,7 +100,9 @@ Possible URLs:
   - `/friends/best_friend/friends/other_friend`
   - `...`
 - `/friends/other_friend`
+  - `...`
 - `/friends/other_friend`
+  - `...`
 - `/friends/some_person`
 
 
