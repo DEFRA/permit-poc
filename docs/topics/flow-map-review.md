@@ -8,6 +8,7 @@ The following review was written 23-03-2020.
 - [Plug-in Architecture](#plug-in-architecture)
 - [Declarative Flow](declarative-flow)
 - [Conclusion](#conclusion)
+- [Recomended Actions](recommended-actions)
 
 ## Overview
 
@@ -16,7 +17,7 @@ become the most fully featured implementation of some of the ideas
 discussed as ways to improve development work-flow and improve
 collaboration between UI/UX team members and engineers.
 
-Having been working on the infrastructure and tooling, with little
+Working on the infrastructure and tooling, with little
 exposure to the code base (and having a familiarity with the
 problem-space and previous system) I trialled working with this
 implementation and made the following notes based on the experience.
@@ -24,7 +25,7 @@ implementation and made the following notes based on the experience.
 
 ## Documentation and Commenting
 
-For a POC, there are some well written i[documents to describe the
+For a POC, there are some well written [documents to describe the
 "flow engine"](../technical/journey-flow.md) (the mechanism for
 describing how one screen leads to
 the next).
@@ -118,3 +119,10 @@ for this in other teams.
 
 If wider adoption is unlikely then I'd recommend keeping the
 modularity within one code-base, for the time being.
+
+## Recomended actions:
+
+- code reviews from wider community, gague appetite for adoption;
+- code reviews from UX team members to ascertain suitability for
+  their needs;
+- gague appetite to adopt within existing team.
