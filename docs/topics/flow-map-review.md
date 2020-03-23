@@ -99,9 +99,9 @@ able to:
 
 This should be reviewed by it's intended audience (product owners
 and UX designers). As an engineer I found it easy to follow and
-well documented. However, I did think there are [other ideas left
-unexplored)[./config_02.md] and that we're only really scratching
-the surface.
+well documented. However, I did think there are
+[other ideas left unexplored](./config_02.md)
+and that we're only really scratching the surface.
 
 While it is modular (plug-in based) I'm not sure how easily it
 would be replaced once the number of screens has increased.
