@@ -10,6 +10,11 @@ permit:
   module: permit
 
 
+confirm:
+  path: "/confirm"
+  module: confirm
+
+
 upload:
   path: "/upload"
   module: upload

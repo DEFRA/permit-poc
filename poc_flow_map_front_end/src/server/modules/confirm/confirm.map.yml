@@ -1,0 +1,5 @@
+--- # Confirm permit map
+
+confirm:
+  path: ""
+  route: confirm.route.js
