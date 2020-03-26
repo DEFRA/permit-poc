@@ -1,29 +1,13 @@
 --- # Confirm permit map
 
-init:
-  path: "/tasklist-init"
-  route: tasklist-init.route.js
-
 tasklist:
   path: "/tasklist"
   route: tasklist.route.js
-  next: submit
+  next: return
 
 tasks:
   path: ""
   module: tasks
   next: tasklist
-#    query: submitTasks
-#    when:
-#      yes: submit
-#      no: tasklist
 
-submit:
-  path: "/tasklist/submit"
-  route: tasklist-submit.route.js
-  next:
-    query: tasksComplete
-    when:
-      yes: return
-      no: tasklist
 

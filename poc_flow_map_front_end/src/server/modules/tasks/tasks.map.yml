@@ -12,7 +12,6 @@ task-start:
       #      site-name: site-name
       #      site-plan: site-plan
       #      confidentiality: confidentiality
-      check-your-answers: return
 
 
 # ------------ Tasks -------------

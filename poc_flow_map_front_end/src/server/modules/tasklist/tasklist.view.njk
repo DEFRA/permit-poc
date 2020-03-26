@@ -28,9 +28,13 @@
           {% for task in section.tasks %}
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a class="govuk-link" href="{{ task.link }}" {% if not task.submit %}aria-describedby="{{ task.id }}-{{ task.state.id }}"{% endif %}>
+                {% if task.submit %}
+                <button class="govuk-link">{{ task.title }}</button>
+                {% else %}
+                <a class="govuk-link" href="{{ task.link }}" aria-describedby="{{ task.id }}-{{ task.state.id }}">
                   {{ task.title }}
                 </a>
+                {% endif %}
               </span>
               {% if not task.submit %}
                 <strong class="govuk-tag app-task-list__task-{{ task.state.id }} {% if task.state.id != 'completed' %}govuk-tag--inactive{% endif %}" id="eligibility-{{ task.state.id }}">{{ task.state.label }}</strong>

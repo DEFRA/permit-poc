@@ -75,5 +75,15 @@
   }
 }
 
+button.govuk-link {
+  background: inherit;
+  border: inherit;
+  font-size: inherit;
+  padding: inherit;
+  color: $govuk-link-colour;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 
 
