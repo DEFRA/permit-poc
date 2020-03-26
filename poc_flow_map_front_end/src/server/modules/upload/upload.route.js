@@ -1,49 +1,74 @@
+// TODO: Pull the filetype for the files list from the map.yaml
+// TODO: Populate uploadedFiles on page load (by searching files list for filetype?)
+
 const Application = require('../../dao/application')
-// const Joi = require('@hapi/joi')
-// const failWith = require('../../utils/validation')
+const Joi = require('@hapi/joi')
+const failWith = require('../../utils/validation')
 const view = 'upload/upload.view.njk'
-const { sendToDynamics } = require('../../utils/transfer')
-const { logger } = require('defra-logging-facade')
+const Hoek = require('@hapi/hoek')
+const Bourne = require('@hapi/bourne')
+
+const pageHeading = 'Upload a file'
+
+// As of v16 Joi no longer parses JSON arrays
+// So we extend Joi to do this ourselves
+const coerceArrayJoi = Joi.extend((joi) => {
+  return {
+    type: 'array',
+    base: Joi.array(),
+    coerce: {
+      from: 'string',
+      method (value, helpers) {
+        if (value[0] !== '[') { return }
+
+        try {
+          return { value: Bourne.parse(value) }
+        } catch (ignoreErr) { }
+      }
+    }
+  }
+})
 
 module.exports = [{
   method: 'GET',
   handler: async function (request, h) {
-    // formOptions is set so we can pass through the required parameter for an upload form
-    return h.view(view, { pageHeading: 'Upload a file', formOptions: 'enctype="multipart/form-data"' })
+    const { files = [] } = await Application.get(request)
+    const uploadedFiles = files
+    return h.view(view, { pageHeading, uploadedFiles, formOptions: 'enctype="multipart/form-data"' })
   }
 }, {
   method: 'POST',
   handler: async function (request, h) {
-    const { upload } = request.payload
-    const data = upload.read()
-    const sendResult = await sendToDynamics(data, 'file')
+    // Parse the JSON file list we've been passed
+    const fileList = (request.payload.files)
 
-    const { blobName: id } = sendResult
-    const filetype = 'POC demo file'
-    const { filename } = upload.hapi
+    // Add the filetype to each one
+    fileList.forEach((file) => { file.filetype = 'POC demo file' })
 
-    const files = [{ id, filetype, filename }]
+    // Get the current list of files (defaulting to an empty array)
+    const { files = [] } = await Application.get(request)
 
+    // Merge the uploaded files
+    Hoek.merge(files, fileList)
+
+    // Save the list back
     await Application.update(request, { files })
-
-    // TODO: Allow multiple files and loop back while user wants to upload more files
-    // TODO: Change over to MOJ multi file upload component
 
     return h.continue
   },
-  // TODO: Maybe add some basic validation
   options: {
     payload: {
-      parse: true,
-      output: 'stream',
+      parse: true
+    },
+    validate: {
+      payload: Joi.object({
+        files: coerceArrayJoi.array().min(1)
+      }).options({ allowUnknown: true, convert: true }),
+      failAction: failWith(view, { pageHeading }, {
+        files: {
+          'array.min': 'You must upload a file'
+        }
+      })
     }
-    // validate: {
-    //   payload: Joi.object({
-    //     ...
-    //   }),
-    //   failAction: failWith(view, {
-    //     ...
-    //   })
-    // }
   }
 }]

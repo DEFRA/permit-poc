@@ -2,6 +2,11 @@ const { BulletList, Link, Paragraph } = require('../../utils/tags')
 
 const components = [
   {
+    type: 'MojBanner',
+    bannerType: 'information',
+    content: '<h2 class="govuk-heading-m">This is an MOJ Frontend component</h2>'
+  },
+  {
     type: 'Details',
     name: 'applyOffline',
     title: 'Help with choosing the right type of permit',

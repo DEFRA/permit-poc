@@ -10,12 +10,7 @@ permit:
   module: permit
 
 
-confirm:
-  path: "/confirm"
-  module: confirm
-
-
-upload:
+multiupload:
   path: "/upload"
   module: upload
 
@@ -37,9 +32,9 @@ address:
 #  next: complete
 
 
-transfer:
-  path: "/transfer"
-  module: transfer
+send-application:
+  path: "/send-application"
+  module: send-application
 
 
 complete:

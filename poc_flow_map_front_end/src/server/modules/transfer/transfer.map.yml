@@ -1,5 +1,0 @@
---- # Data transfer map
-
-transfer-data:
-  path: "/transfer-data"
-  route: transfer-data.route

@@ -2,26 +2,93 @@
 
 {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
-
-{% block formOptions %} enctype="multipart/form-data" {% endblock %}
+{% from "moj/components/multi-file-upload/macro.njk" import mojMultiFileUpload %}
 
 {% block formContent %}
 
-{% call govukFieldset({
-  legend: {
-    text: pageHeading,
-    classes: "govuk-fieldset__legend--xl",
-    isPageHeading: true
-  } }) %}
+  <script src="{{ assetPath }}/moj/all.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
+        new MOJFrontend.MultiFileUpload({
+          container: $('.moj-multi-file-upload'),
+          uploadUrl: '/ajax-upload',
+          deleteUrl: '/ajax-delete'
+        })
+      }
+    })
+    DEFRAFrontend = {
+      submitFiles: function (e) {
+        // Stop default form submit from triggering
+        e.preventDefault()
 
-{{ govukFileUpload({
-  id: "upload",
-  name: "upload",
-  label: {
-    text: "Upload a file"
-  }
-}) }}
+        var files = []
+
+        // Iterate over each row in the file upload table and push metadata to files array
+        $('.moj-multi-file-upload__row').each(function(index, item) {
+          var id = $(item).find('.moj-multi-file-upload__delete').val()
+          var filename = $(item).find('.moj-multi-file-upload__delete span').text()
+          files.push({ id: id, filename: filename })
+        })
+
+        // Find the form element
+        var form = document.getElementsByTagName('form')[0]
+
+        // Set up a hidden input containing the files metadata and add it to the form
+        var filesInput = document.createElement('input')
+        filesInput.setAttribute('name', 'files')
+        filesInput.setAttribute('value', JSON.stringify(files))
+        filesInput.setAttribute('type', 'hidden')
+        form.appendChild(filesInput)
+
+        form.submit()
+      }
+    }
+  </script>
+
+  {% call govukFieldset({
+    legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--xl",
+      isPageHeading: true
+    } }) %}
+
+  {% set uploadHtml %}
+    {{ govukFileUpload({
+      id: "documents",
+      name: "documents",
+      classes: 'moj-multi-file-upload__input',
+      label: {
+        text: "Upload a file",
+        classes: 'govuk-label--m'
+      },
+      attributes: { multiple: '' },
+      errorMessage: errors.documents
+    }) }}
+
+    {{govukButton({
+      text: 'Upload file',
+      classes: 'govuk-button--secondary moj-multi-file-upload__button'
+    })}}
+  {% endset %}
+
+  {{ mojMultiFileUpload({
+    uploadedFiles: {
+      heading: { text: 'Files added' },
+      items: uploadedFiles
+    },
+    uploadHtml: uploadHtml
+  }) }}
 
 {% endcall %}
 
+{% endblock %}
+
+{% block continueButton %}
+  {{ govukButton({
+    text: "Continue",
+    attributes: {
+      onclick: "DEFRAFrontend.submitFiles(event)"
+    }
+  }) }}
 {% endblock %}

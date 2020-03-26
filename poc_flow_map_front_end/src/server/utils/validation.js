@@ -30,7 +30,7 @@ function formatErrors (result, messages) {
 
 module.exports = (view, viewData, messages = {}) => async function (request, h, errors) {
   // Merge the viewData with the formatted error messages
-  Hoek.merge(viewData, await formatErrors(errors, messages))
+  Hoek.merge(viewData, await formatErrors(errors, messages), { mergeArrays: false })
   return h.view(view, viewData)
     .code(400)
     .takeover()
