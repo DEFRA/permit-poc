@@ -1,0 +1,13 @@
+--- # Confirm permit map
+
+tasklist:
+  path: "/tasklist"
+  route: tasklist.route.js
+  next: return
+
+tasks:
+  path: ""
+  module: tasks
+  next: tasklist
+
+

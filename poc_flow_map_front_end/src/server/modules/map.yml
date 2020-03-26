@@ -10,26 +10,19 @@ permit:
   module: permit
 
 
+confirm:
+  path: "/confirm"
+  module: confirm
+
+
+tasklist:
+  path: ""
+  module: tasklist
+
+
 multiupload:
   path: "/upload"
   module: upload
-
-
-address:
-  path: "/address"
-  module: address
-
-
-#applicant:
-#  path: "/applicant"
-#  module: contact
-#  next: director
-#
-#
-#director:
-#  path: "/director"
-#  module: director
-#  next: complete
 
 
 send-application:

@@ -1,3 +1,5 @@
+const Hoek = require('@hapi/hoek')
+
 class Cache {
   static get (request, key) {
     if (typeof key === 'string') {
@@ -21,7 +23,8 @@ class Cache {
 
   static update (request, key, val) {
     const data = Cache.get(request, key) || {}
-    return Cache.set(request, key, { ...data, ...val })
+    Hoek.merge(data, val)
+    return Cache.set(request, key, { ...data })
   }
 
   static clear (request) {

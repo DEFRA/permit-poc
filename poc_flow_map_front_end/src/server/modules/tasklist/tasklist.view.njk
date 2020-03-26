@@ -1,0 +1,52 @@
+{% extends 'form-layout.njk' %}
+
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block formContent %}
+
+<div class="govuk-form-group {% if errors %}govuk-form-group--error{% endif %}">
+  {% call govukFieldset({
+    legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--xl",
+      isPageHeading: true
+    } }) %}
+
+    {% if errors.tasksComplete %}
+    <span id="tasksComplete-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> {{ errors.tasksComplete.text }}
+    </span>
+    {% endif %}
+
+    <ol class="govuk-list--number app-task-list">
+    {% for section in value.tasklist %}
+      <li>
+        <h2 class="govuk-heading-m app-task-list__section">
+          <span class="app-task-list__section-number">{{ loop.index }}. </span> {{ section.heading }}
+        </h2>
+        <ul class="app-task-list__items">
+          {% for task in section.tasks %}
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if task.submit %}
+                <button class="govuk-link">{{ task.title }}</button>
+                {% else %}
+                <a class="govuk-link" href="{{ task.link }}" aria-describedby="{{ task.id }}-{{ task.state.id }}">
+                  {{ task.title }}
+                </a>
+                {% endif %}
+              </span>
+              {% if not task.submit %}
+                <strong class="govuk-tag app-task-list__task-{{ task.state.id }} {% if task.state.id != 'completed' %}govuk-tag--inactive{% endif %}" id="eligibility-{{ task.state.id }}">{{ task.state.label }}</strong>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+    </ol>
+  {% endcall %}
+</div>
+{% endblock %}
+
+{% block continueButton %}{# submit button not required#}{% endblock %}
