@@ -35,3 +35,5 @@ module.exports = (view, viewData, messages = {}) => async function (request, h, 
     .code(400)
     .takeover()
 }
+
+module.exports.formatErrors = formatErrors

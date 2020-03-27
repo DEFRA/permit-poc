@@ -1,0 +1,29 @@
+---
+- heading: About the applicant
+  tasks:
+    - id: contact-details
+      title: Contact details
+
+    - id: permit-holder-details
+      title: Permit holder details
+      required: true
+
+
+- heading: Operation
+  tasks:
+    - id: site-name
+      title: Site name and location
+
+    - id: site-plan
+      title: Site plan
+
+    - id: confidentiality
+      title: Commercial confidentiality
+
+
+- heading: Review and submit
+  submit: true
+  tasks:
+    - id: check-your-answers
+      title: Check your answers before submitting
+      required: true

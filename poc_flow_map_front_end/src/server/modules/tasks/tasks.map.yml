@@ -1,0 +1,35 @@
+
+# --------- Task Start ----------
+
+task-start:
+  path: "/task/{task}"
+  route: task-start.route.js
+  next:
+    query: task
+    when:
+      contact-details: contact-details
+      permit-holder-details: permit-holder-details
+      #      site-name: site-name
+      #      site-plan: site-plan
+      #      confidentiality: confidentiality
+
+
+# ------------ Tasks -------------
+
+contact-details:
+  path: "/contact"
+  module: "contact"
+  next: task-complete
+
+permit-holder-details:
+  path: "/permit-holder"
+  module: "contact"
+  next: task-complete
+
+
+# --------- Task Complete ----------
+
+task-complete:
+  path: "/task-complete"
+  route: task-complete.route.js
+
