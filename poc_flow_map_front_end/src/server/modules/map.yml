@@ -20,11 +20,6 @@ tasklist:
   module: tasklist
 
 
-multiupload:
-  path: "/upload"
-  module: upload
-
-
 send-application:
   path: "/send-application"
   module: send-application
