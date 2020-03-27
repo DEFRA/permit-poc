@@ -1,0 +1,17 @@
+--- # Contact details map
+
+agent-consultant:
+  path: "/agent-consultant"
+  route: agent-consultant.route
+
+
+details:
+  title: What are your contact details?
+  path: "/details"
+  route: details.route
+
+
+confirm:
+  title: Confirm the contact details
+  path: "/confirm"
+  route: confirm.route

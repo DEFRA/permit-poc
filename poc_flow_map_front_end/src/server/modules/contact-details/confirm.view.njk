@@ -1,0 +1,52 @@
+{% extends 'form-layout.njk' %}
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block formContent %}
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Consultant or agent"
+      },
+      value: {
+        text: agentConsultant
+      },
+      actions: {
+        items: [
+          {
+            href: "agent-consultant",
+            text: "Change",
+            visuallyHiddenText: "consultant or agent"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Contact details"
+      },
+      value: {
+        html: contactDetails
+      },
+      actions: {
+        items: [
+          {
+            href: "details",
+            text: "Change",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% block continueButton %}
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+{% endblock %}

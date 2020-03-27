@@ -10,6 +10,11 @@ permit:
   module: permit
 
 
+contact-details:
+  path: "/contact-details"
+  module: "contact-details"
+
+
 multiupload:
   path: "/upload"
   module: upload
@@ -20,13 +25,13 @@ address:
   module: address
 
 
-#applicant:
+# applicant:
 #  path: "/applicant"
 #  module: contact
 #  next: director
-#
-#
-#director:
+
+
+# director:
 #  path: "/director"
 #  module: director
 #  next: complete
