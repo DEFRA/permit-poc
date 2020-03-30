@@ -1,0 +1,20 @@
+{% extends 'form-layout.njk' %}
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block formContent %}
+  <ul class="govuk-list--number app-task-list">
+    {% for section in value.answers %}
+    <li>
+      <h2 class="govuk-heading-m app-task-list__section">{{ section.heading }}</h2>
+      {{ govukSummaryList({
+        rows: section.rows
+      }) }}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+{% block continueButton %}
+  <button type="submit" class="govuk-button">Accept and pay</button>
+{% endblock %}

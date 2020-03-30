@@ -1,5 +1,4 @@
 --- # Send application map
 
 complete:
-  path: ""
   route: send-application.route

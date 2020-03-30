@@ -1,8 +1,7 @@
 --- # Confirm permit map
 
-tasklist:
-  path: "/tasklist"
-  route: tasklist.route.js
+check-your-answers:
+  route: check-your-answers.route.js
   next: return
 
 tasks:
