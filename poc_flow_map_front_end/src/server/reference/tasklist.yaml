@@ -14,12 +14,12 @@
     - id: site-name
       title: Site name and location
 
-    - id: site-plan
-      title: Site plan
-
+    - id: site-plan-upload
+      title: Upload a copy of your site plan
+      required: true
+    
     - id: confidentiality
       title: Commercial confidentiality
-
 
 - heading: Review and submit
   submit: true
