@@ -16,6 +16,7 @@
 
     - id: site-plan-upload
       title: Upload a copy of your site plan
+      label: Site plan
       required: true
     
     - id: confidentiality

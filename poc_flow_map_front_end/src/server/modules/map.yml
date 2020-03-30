@@ -16,8 +16,12 @@ confirm:
 
 
 tasklist:
-  path: ""
   module: tasklist
+
+
+check-your-answers:
+  path: "/check-your-answers"
+  module: check-your-answers
 
 
 send-application:

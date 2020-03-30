@@ -2,7 +2,6 @@
 
 find:
   title: Please enter your postcode
-  path: ""
   route: address-find.route
 
 

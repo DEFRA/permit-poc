@@ -1,5 +1,4 @@
 --- # Application complete map
 
 complete:
-  path: ""
   route: complete.route

@@ -1,7 +1,6 @@
 --- # Director map
 
 contact:
-  path: ""
   module: contact
 
 

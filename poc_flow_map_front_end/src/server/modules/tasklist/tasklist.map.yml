@@ -6,7 +6,6 @@ tasklist:
   next: return
 
 tasks:
-  path: ""
   module: tasks
   next: tasklist
 
