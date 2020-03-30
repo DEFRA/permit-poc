@@ -6,6 +6,6 @@ check-your-answers:
 
 tasks:
   module: tasks
-  next: tasklist
+  next: check-your-answers
 
 

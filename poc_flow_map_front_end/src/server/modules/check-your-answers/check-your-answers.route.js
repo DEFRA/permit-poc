@@ -74,9 +74,6 @@ module.exports = [{
   method: 'GET',
   handler: async function (request, h) {
     return h.view(view, await getViewData(request))
-  },
-  options: {
-    tags: ['hide-back-link']
   }
 }, {
   method: 'POST',
