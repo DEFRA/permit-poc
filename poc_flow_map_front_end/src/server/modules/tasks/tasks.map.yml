@@ -26,6 +26,7 @@ permit-holder-details:
   module: "contact"
   next: task-complete
 
+<<<<<<< HEAD
 site-plan-upload:
   path: "/site-plan-upload"
   module: "upload"
@@ -34,6 +35,13 @@ site-plan-upload:
     filetype: "POC demo file"
     title: "Upload a copy of your site plan"
     extensions: ["PNG", "PDF"]
+=======
+file-upload:
+  path: "/upload"
+  module: "upload"
+  options:
+    filetype: "POC demo file"
+>>>>>>> 68e0ee2... wip
   next: task-complete
 
 # --------- Task Complete ----------
