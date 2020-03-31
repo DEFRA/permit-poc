@@ -1,0 +1,24 @@
+{% extends 'form-layout.njk' %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block formContent %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  idPrefix: "standardRule",
+  name: "standardRule",
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: value.hint,
+  value: value['standardRule'],
+  errorMessage: errors['standardRule'],
+  items: value.items
+}) }}
+
+{% endblock %}

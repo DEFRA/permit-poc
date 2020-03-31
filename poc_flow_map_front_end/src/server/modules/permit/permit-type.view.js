@@ -1,4 +1,4 @@
-const { BulletList, Link, Paragraph } = require('../../utils/tags')
+const helpDetails = require('../../partials/helpDetails')
 
 const { load } = require('../../utils/reference')
 const reference = load('permit-type')
@@ -26,19 +26,7 @@ const components = [
   {
     type: 'Details',
     title: 'Help with choosing the right type of permit',
-    content: `
-      ${Paragraph('If you\'re not sure which type of permit to choose, you can:')}
-      ${BulletList([
-          Link({
-            link: 'https://www.gov.uk/guidance/check-if-you-need-an-environmental-permit',
-            text: 'read about environmental permits on GOV.UK (opens new tab)'
-          }),
-          Link({
-            link: 'https://www.gov.uk/government/organisations/environment-agency#org-contacts',
-            text: 'contact the Environment Agency (opens new tab)'
-          })
-        ])
-      }`
+    content: helpDetails
   }
 ]
 
