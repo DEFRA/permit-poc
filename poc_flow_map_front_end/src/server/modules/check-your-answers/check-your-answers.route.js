@@ -38,7 +38,7 @@ async function buildRows (answers) {
 async function getTaskAnswers (request, task) {
   const { id, title, label, link: href } = task
   const key = label || title
-  const { address } = await Application.get(request)
+  const { address, files } = await Application.get(request)
   let value
   let html
   switch (id) {
@@ -47,6 +47,14 @@ async function getTaskAnswers (request, task) {
       html = Object.values(address)
         .filter((addressLine) => addressLine.trim())
         .join('<br>')
+      break
+    }
+    case 'site-plan-upload': {
+      value = ''
+      html = files
+        .map(({ filename }) => filename)
+        .join('<br>')
+      break
     }
   }
   return { key, id, href, value, html }
