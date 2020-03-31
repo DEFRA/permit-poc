@@ -1,0 +1,23 @@
+<aside class="defra-aside-content" role="complementary">
+  {% if aside.navLinks %}
+    <nav role="navigation">
+      <ul class="govuk-list govuk-!-font-size-16">
+        {% for navLink in aside.navLinks %}
+          <li>
+            <a class="govuk-link" href="{{ navLink.href }}">
+              {{ navLink.text }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+  {% if aside.details %}
+    <dl class="govuk-summary-list defra-description-list">
+      {% for detail in aside.details %}
+        <dt class="defra-description-list-term govuk-!-font-weight-bold">{{ detail.term | safe }}</dt>
+        <dd class="defra-description-list-definition">{{ detail.definition | safe }}</dd>
+      {% endfor %}
+    </dl>
+  {% endif %}
+</aside>

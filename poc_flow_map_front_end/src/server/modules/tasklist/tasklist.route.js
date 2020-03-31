@@ -1,6 +1,7 @@
-const { setQueryData } = require('hapi-govuk-journey-map')
+const { setQueryData, getCurrent } = require('hapi-govuk-journey-map')
 const Joi = require('@hapi/joi')
 const failAction = require('../../utils/validation')
+const { getDetails } = require('../../utils/permitReference')
 const view = 'tasklist/tasklist.view.njk'
 const pageHeading = 'Apply for a standard rules environmental permit'
 
@@ -12,11 +13,30 @@ async function getErrors (request) {
   return error
 }
 
+async function getAsideDetails (request) {
+  const { parent = {} } = await getCurrent(request)
+  const { path = '' } = parent
+  return {
+    navLinks: [
+      {
+        text: 'Save application',
+        href: `${path}/save-application`
+      },
+      {
+        text: 'Print application',
+        href: `${path}/print-application`
+      }
+    ],
+    details: await getDetails(request)
+  }
+}
+
 async function getViewData (request) {
   const tasklist = await buildTaskList(request)
   return {
     pageHeading: pageHeading,
-    value: { tasklist }
+    value: { tasklist },
+    aside: await getAsideDetails(request)
   }
 }
 
