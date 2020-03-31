@@ -23,9 +23,9 @@ const costAndActivities = [
 ]
 
 const tasks = [
-  'contact-details',
-  'site-name',
-  'site-plan'
+  // 'contact-details',
+  // 'site-name',
+  // 'site-plan'
 ]
 
 module.exports = {
