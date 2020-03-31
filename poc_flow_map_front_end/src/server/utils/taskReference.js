@@ -1,4 +1,4 @@
-
+const { getCurrent } = require('hapi-govuk-journey-map')
 const Application = require('../dao/application')
 const Tasks = require('../dao/tasks')
 
@@ -19,6 +19,8 @@ async function permitReference (request) {
 }
 
 async function buildTaskList (request) {
+  const { parent = {} } = await getCurrent(request)
+  const { path = '' } = parent
   const { tasks: permitTasks } = await permitReference(request)
   const taskStatus = await Tasks.get(request)
   return tasklistReference
@@ -29,7 +31,7 @@ async function buildTaskList (request) {
         tasks: tasks
           .filter(({ id, required }) => required || permitTasks.includes(id))
           .map((task) => {
-            return { ...task, submit, state: getState(taskStatus[task.id]), link: `/task/${task.id}` }
+            return { ...task, submit, state: getState(taskStatus[task.id]), link: `${path}/task/${task.id}` }
           })
       }
     })
