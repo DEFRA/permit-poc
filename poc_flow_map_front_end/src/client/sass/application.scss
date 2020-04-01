@@ -2,8 +2,13 @@
 @import "tasklist.scss";
 @import "node_modules/@ministryofjustice/frontend/moj/all";
 
+.govuk-grid-column-two-thirds {
+  min-width: min-content;
+}
+
 .govuk-radios__label {
   width: 100%;
+
   .permit-label {
     min-height: 50px;
 
@@ -20,6 +25,7 @@
     }
   }
 }
+
 .govuk-radios__hint {
   max-width: 66%;
 }
@@ -35,6 +41,33 @@
 
     a {
       color: white;
+    }
+  }
+}
+
+.defra-aside-content {
+  border-top: 10px solid $govuk-brand-colour;
+  padding-top: 10px;
+
+  .defra-description-list {
+    font-size: 1rem !important;
+    line-height: 1.25 !important;
+
+    .defra-description-list-term,
+    .defra-description-list-definition {
+      margin-inline-start: 0;
+      margin-bottom: 0.5rem;
+      .govuk-body {
+        margin-bottom: 0.5rem;
+      }
+      .govuk-body,
+      .govuk-hint {
+        font-size: inherit !important;
+        line-height: inherit !important;
+      }
+    }
+    .defra-description-list-term {
+      margin-top: 1rem;
     }
   }
 }

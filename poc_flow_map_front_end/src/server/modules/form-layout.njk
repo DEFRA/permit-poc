@@ -13,9 +13,9 @@
       {% if showTitle %}
         <h1 class="govuk-heading-xl">
           {% if pageCaption %}
-            <span class="govuk-caption-xl">{{pageCaption}}</span>
+            <span class="govuk-caption-xl">{{ pageCaption }}</span>
           {% endif %}
-          {{pageTitle}}
+          {{ pageTitle }}
         </h1>
       {% endif %}
 
@@ -29,7 +29,13 @@
         {% endblock %}
       </form>
 
-{#      <pre>{{ value | dump(2) | safe }}</pre>#}
+      {#      <pre>{{ value | dump(2) | safe }}</pre>#}
     </div>
+
+    {%  if aside %}
+    <div class="govuk-grid-column-one-third">
+      {% block asideContent %}{# Only if required #}{% endblock %}
+    </div>
+    {% endif %}
   </div>
 {% endblock %}

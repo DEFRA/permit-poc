@@ -7,6 +7,11 @@ module.exports.Link = ({ text, link, rel = 'noopener noreferrer', className = ''
   return `<a class="govuk-link ${className}" href="${link}" target="_blank" ${rel}>${text}</a>`
 }
 
+module.exports.Hint = (text, options = {}) => {
+  const { className = '' } = options
+  return `<span class="govuk-hint ${className}">${text}</span>`
+}
+
 module.exports.Paragraph = (text, options = {}) => {
   const { className = '' } = options
   return `<p class="govuk-body ${className}">${text}</p>`

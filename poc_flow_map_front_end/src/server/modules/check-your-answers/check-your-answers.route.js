@@ -1,9 +1,10 @@
-
+const { getCurrent } = require('hapi-govuk-journey-map')
 const Application = require('../../dao/application')
 const view = 'check-your-answers/check-your-answers.view.njk'
 const pageHeading = 'Check your answers before sending your application'
 
 const { buildTaskList } = require('../../utils/taskReference')
+const { getDetails } = require('../../utils/permitReference')
 
 async function buildRows (answers) {
   return answers.map(({ key, value, html, id, href }) => {
@@ -60,6 +61,20 @@ async function getTaskAnswers (request, task) {
   return { key, id, href, value, html }
 }
 
+async function getAsideDetails (request) {
+  const { parent = {} } = await getCurrent(request)
+  const { path = '' } = parent
+  return {
+    navLinks: [
+      {
+        text: 'Print application',
+        href: `${path}/print-application`
+      }
+    ],
+    details: await getDetails(request)
+  }
+}
+
 async function getViewData (request) {
   const tasklist = await buildTaskList(request)
   const answers = await Promise.all(tasklist
@@ -70,11 +85,11 @@ async function getViewData (request) {
       return { heading, rows }
     })
   )
-  console.log(answers)
   return {
     showTitle: true,
     pageTitle: pageHeading,
-    value: { answers }
+    value: { answers },
+    aside: await getAsideDetails(request)
   }
 }
 
