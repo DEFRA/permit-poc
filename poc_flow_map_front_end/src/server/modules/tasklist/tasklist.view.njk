@@ -12,6 +12,8 @@
       isPageHeading: true
     } }) %}
 
+    <p class="govuk-body">You can't submit the application until you have completed all the sections</p>
+
     {% if errors.tasksComplete %}
     <span id="tasksComplete-error" class="govuk-error-message">
       <span class="govuk-visually-hidden">Error:</span> {{ errors.tasksComplete.text }}

@@ -5,6 +5,7 @@ const pageHeading = 'Check your answers before sending your application'
 
 const { buildTaskList } = require('../../utils/taskReference')
 const { getDetails } = require('../../utils/permitReference')
+const confirmationStatement = require('../../partials/confirmation-statement')
 
 async function buildRows (answers) {
   return answers.map(({ key, value, html, id, href }) => {
@@ -88,7 +89,7 @@ async function getViewData (request) {
   return {
     showTitle: true,
     pageTitle: pageHeading,
-    value: { answers },
+    value: { answers, confirmationStatement },
     aside: await getAsideDetails(request)
   }
 }

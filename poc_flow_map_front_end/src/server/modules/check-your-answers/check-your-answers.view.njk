@@ -1,6 +1,8 @@
 {% extends 'form-layout.njk' %}
 
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
 {% block formContent %}
   <ul class="govuk-list--number app-task-list">
@@ -13,6 +15,18 @@
     </li>
     {% endfor %}
   </ul>
+
+  {{ govukWarningText({
+    text: "You can be prosecuted and fined if you give false or misleading information.",
+    iconFallbackText: "Warning"
+  }) }}
+
+  {{ value.confirmationStatement | safe }}
+
+  {{ govukInsetText({
+    text: "If you want a copy of your application, print this page now.  You will not get a copy after you submit"
+  }) }}
+
 {% endblock %}
 
 {% block asideContent %}
