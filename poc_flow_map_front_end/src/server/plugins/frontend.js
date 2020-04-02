@@ -8,7 +8,7 @@ module.exports = {
     serviceName: 'Front end template demo',
     viewPath: 'src/server/modules',
     includePaths: [
-      'node_modules/hapi-govuk-frontend/node_modules/govuk-frontend',
+      'node_modules/govuk-frontend',
       'node_modules/@ministryofjustice/frontend'
     ],
     context: {
