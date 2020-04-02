@@ -29,6 +29,7 @@
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#master",
     "dotenv": "^8.2.0",
     "glob": "^7.1.6",
+    "govuk-frontend": "^3.6.0",
     "hapi-govuk-frontend": "git+https://github.com/DEFRA/hapi-govuk-frontend.git#waste-permits-poc",
     "hapi-govuk-journey-map": "git+https://github.com/DEFRA/hapi-govuk-journey-map.git#master",
     "hapi-robots": "^3.2.0",
@@ -38,6 +39,6 @@
     "nunjucks": "3.2.0"
   },
   "devDependencies": {
-    "standard": "14.3.1"
+    "standard": "^14.3.1"
   }
 }
