@@ -1,4 +1,4 @@
-const helpDetails = require('../../partials/helpDetails')
+const helpDetails = require('../../partials/help-details')
 
 const { load } = require('../../utils/reference')
 const reference = load('permit-category')
