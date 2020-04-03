@@ -1,0 +1,20 @@
+{% extends 'layout.njk' %}
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+            {% block errorContent %}{% endblock %}
+
+            {% if isDev %}
+                <div class="defra-dev-errors">
+                    <pre>Error: {{ devDetails | dump(2) | safe }}</pre>
+                    <pre>{{ stack | safe }}</pre>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

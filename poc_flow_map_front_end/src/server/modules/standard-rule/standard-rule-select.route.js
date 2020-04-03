@@ -1,6 +1,8 @@
 const { setQueryData } = require('hapi-govuk-journey-map')
+const { logger } = require('defra-logging-facade')
 const Application = require('../../dao/application')
 const Joi = require('@hapi/joi')
+const Boom = require('@hapi/boom')
 const failWith = require('../../utils/validation')
 const view = 'standard-rule/standard-rule-select.view.njk'
 
@@ -13,25 +15,42 @@ async function getPageHeading (request) {
 }
 
 async function getReference (request) {
-  const { permitType, permitCategory } = await Application.get(request)
-  return load(`${permitType}/${permitCategory}`)
+  const { permitType } = await Application.get(request)
+  const { permitCategory } = request.params
+
+  try {
+    return load(`${permitType}/${permitCategory}`)
+  } catch (e) {
+    if (e.code === 'ENOENT') {
+      // permit category doesn't exist
+      logger.debug(e)
+    } else {
+      throw e
+    }
+  }
 }
 
 async function getValue (request) {
   const { standardRule } = await Application.get(request)
+
   const reference = await getReference(request)
 
-  const items = reference.map(({ id, ref, label, hint }) => {
+  if (reference) {
+    const items = reference.map(({ id, ref, label, hint }) => {
+      return {
+        value: id,
+        html: `<b>${ref}</b> ${label}`,
+        hint: hint ? { text: hint } : undefined,
+        checked: standardRule !== undefined && standardRule === id
+      }
+    })
     return {
-      value: id,
-      html: `<b>${ref}</b> ${label}`,
-      hint: hint ? { text: hint } : undefined,
-      checked: standardRule !== undefined && standardRule === id
+      standardRule,
+      items
     }
-  })
-  return {
-    standardRule,
-    items
+  } else {
+    // permit category doesn't exist
+    return null
   }
 }
 
@@ -39,6 +58,13 @@ module.exports = [
   {
     method: 'GET',
     handler: async function (request, h) {
+      const value = await getValue(request)
+
+      if (!value) {
+        // permit category doesn't exist
+        return Boom.notFound()
+      }
+
       const viewData = {
         pageHeading: await getPageHeading(request),
         value: await getValue(request)
