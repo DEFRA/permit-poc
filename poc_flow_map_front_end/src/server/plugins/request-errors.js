@@ -1,4 +1,6 @@
 const { logger } = require('defra-logging-facade')
+const Application = require('../dao/application')
+const { getQueryData, getCurrent } = require('hapi-govuk-journey-map')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -36,16 +38,26 @@ module.exports = {
               // log an error to airbrake/errbit - the response object is actually an instanceof Error
               logger.serverError(response, request)
 
-              // Then return the `500` view (HTTP 500 Internal Server Error )
-              return h.view('errors/error-500.njk', {
+              const viewData = {
                 statusCode: 500,
                 pageHeading,
                 contactMessage,
                 contactLink,
-                devDetails,
-                stack: stack.replace(/\\n|\\r\\n|\\r/g, '<br/>'),
                 isDev
-              }).code(500)
+              }
+
+              if (isDev) {
+                Object.assign(viewData, {
+                  devDetails,
+                  stack: stack.replace(/\\n|\\r\\n|\\r/g, '<br/>'),
+                  application: await Application.get(request),
+                  queryData: await getQueryData(request),
+                  route: getCurrent(request)
+                })
+              }
+
+              // Then return the `500` view (HTTP 500 Internal Server Error )
+              return h.view('errors/error-500.njk', viewData).code(500)
             }
           }
         }
