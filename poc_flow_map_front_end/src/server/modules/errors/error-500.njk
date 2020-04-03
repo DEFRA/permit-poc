@@ -1,0 +1,8 @@
+{% extends 'error-layout.njk' %}
+
+{% block errorContent %}
+  <p class="govuk-body">Try again later.</p>
+  <p class="govuk-body">
+    If the problem persists, please <a class="govuk-link" href="{{ contactLink }}">{{ contactMessage }}</a>.
+  </p>
+{% endblock %}

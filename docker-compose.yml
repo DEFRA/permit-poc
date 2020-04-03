@@ -44,6 +44,7 @@ services:
       - ${PWD}/poc_flow_map_front_end/.env
     environment:
       HOST_NAME: "web.flow"
+      NODE_ENV: "development"
       LOG_LEVEL: "debug"
       SERVICE_URL: "http://localhost:8000"
       IDM_HOST: "http://localhost:999"

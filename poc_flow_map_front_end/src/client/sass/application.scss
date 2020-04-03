@@ -71,3 +71,13 @@
     }
   }
 }
+
+.defra-dev-errors {
+  border: 10px double darkred;
+  background: navajowhite;
+  color: darkred;
+  pre {
+    padding: 10px;
+    margin: 0;
+  }
+}

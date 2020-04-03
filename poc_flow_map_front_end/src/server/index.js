@@ -30,6 +30,7 @@ async function registerPlugins (server) {
     require('./plugins/robots'),
     require('./plugins/cache'),
     // require('./plugins/crumb'),
+    require('./plugins/request-errors'),
     require('./plugins/question-page'),
     require('./plugins/journey-map'),
     require('./plugins/back-link'),
