@@ -13,6 +13,9 @@
                 <div class="defra-dev-errors">
                     <pre>Error: {{ devDetails | dump(2) | safe }}</pre>
                     <pre>{{ stack | safe }}</pre>
+                    <pre>QueryData: {{ queryData | dump(2) | safe }}</pre>
+                    <pre>Route: {{ route | dump(2) | safe }}</pre>
+                    <pre>Application: {{ application | dump(2) | safe }}</pre>
                 </div>
             {% endif %}
         </div>
