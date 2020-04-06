@@ -7,7 +7,10 @@ module.exports = {
     assetDirectories: ['public/static', 'public/build'],
     serviceName: 'Front end template demo',
     viewPath: 'src/server/modules',
-    includePaths: ['node_modules/@ministryofjustice/frontend'],
+    includePaths: [
+      'node_modules/@ministryofjustice/frontend',
+      'node_modules/@envage/hapi-govuk-question-page'
+    ],
     context: {
       appVersion: pkg.version
     }
