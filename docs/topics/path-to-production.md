@@ -77,3 +77,17 @@
      - deployment/promotion
 
 ![Docker Dev Work Flow](./DevWorkFlow.png)
+
+
+### Testing Work Flow
+
+- Unit test are executed as disposable layer during build
+- From here on the tagged feature-image can be reused in multiple
+  contexts with only configuration changes
+- All CI tests (API, security, integration, functional and UI) can
+  be run locally or in the cloud environments using the exact same
+  components/images
+- The CI runner only really needs docker/docker-compose and the
+  relevant cloud CLI (this could be official containers too)
+
+![Docker Testing](./docker-testing.png)
