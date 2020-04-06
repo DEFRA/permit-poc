@@ -7,6 +7,7 @@
   - [Developer Work Flow](#developer-work-flow)
   - [Testing Work Flow](testing-work-flow)
   - [Environments](Environments)
+    - [Possible Environment Layout](#possible-environment-layout)
 - [Questions](#testing)
 
 
@@ -134,6 +135,10 @@ approach goes into production.
    - test suite run
 4. Production
    - Same again
+
+### Possible Environment Layout
+
+![environment diagram](./EnvironmentDiagram.png)
 
 ## Questions
 
