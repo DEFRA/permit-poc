@@ -12,7 +12,7 @@
     - [ECS]() or Fargate
     - [ECR with Image Scanning](https://aws.amazon.com/blogs/containers/amazon-ecr-native-container-image-scanning/)
   - Cloud Front? How do we manage Load Balancing
-- Jenkins
+- Jenkins/GitLab/Code Deploy/Whatever
   - Docker installed (all processes run from containers)
   - Access to Docker Registry
   - Cypress.io for test suite
@@ -89,5 +89,13 @@
   components/images
 - The CI runner only really needs docker/docker-compose and the
   relevant cloud CLI (this could be official containers too)
+- Test pyramid managed via cypress.io tooling
 
 ![Docker Testing](./docker-testing.png)
+
+## Questions
+
+- Which CI/CD and Cloud tools are available/supported?
+- What is the preferred operation model between Web Ops and
+  Developers?
+- ???
