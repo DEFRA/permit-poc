@@ -1,6 +1,7 @@
+const Boom = require('@hapi/boom')
 const { logger } = require('defra-logging-facade')
 const Application = require('../dao/application')
-const { getQueryData, getCurrent } = require('hapi-govuk-journey-map')
+const { getQueryData, getCurrent, isJourneyRoute, getRoute } = require('hapi-govuk-journey-map')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -9,11 +10,27 @@ const contact = {
   link: '#'
 }
 
+async function getStartLink () {
+  const { path = '/' } = await getRoute('home')
+  return path
+}
+
 module.exports = {
   plugin: {
     name: 'request-errors',
     register: async (server, options = {}) => {
       const { contactMessage = contact.message, contactLink = contact.link } = options
+
+      server.ext('onPreAuth', async (request, h) => {
+        if (request.path !== await getStartLink() && isJourneyRoute(request)) {
+          const application = await Application.get(request)
+          if (application === null) {
+            return Boom.boomify(new Error('SessionTimeout'), { statusCode: 440 })
+          }
+        }
+        return h.continue
+      })
+
       server.ext('onPreResponse', async (request, h) => {
         const response = request.response
 
@@ -26,8 +43,11 @@ module.exports = {
             case 403:
             case 404: {
               const pageHeading = 'Page not found'
-              return h.view('errors/error-404.njk',
-                { statusCode, pageHeading, contactMessage, contactLink }).code(statusCode)
+              return h.view('errors/error-404.njk', { statusCode, pageHeading, contactMessage, contactLink }).code(statusCode)
+            }
+            case 440: {
+              const pageHeading = 'Your application has timed out'
+              return h.view('errors/error-440.njk', { statusCode, pageHeading, startLink: await getStartLink() }).code(statusCode)
             }
             default: {
               const pageHeading = 'Sorry, there is a problem with the service'
