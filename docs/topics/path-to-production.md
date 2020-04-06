@@ -1,6 +1,14 @@
 # Path to Production
 
 
+- [Tools](#tools)
+- [Work Flow](#work-flow)
+  - [Feature Branches and Images](feature-branches-and-images)
+  - [Developer Work Flow](#developer-work-flow)
+  - [Testing Work Flow](testing-work-flow)
+  - [Environments](Environments)
+- [Questions](#testing)
+
 ## Tools
 
 - Docker
@@ -17,7 +25,7 @@
   - Access to Docker Registry
   - Cypress.io for test suite
 
-## Workflow
+## Work Flow
 
 - Dev Environment/Work Flow
   - git repo (single repo to begin with)
@@ -92,6 +100,31 @@
 - Test pyramid managed via cypress.io tooling
 
 ![Docker Testing](./docker-testing.png)
+
+## Environments
+
+1. Dev
+   - images are built and unit tested per branch so this env picks
+     an image up and runs it
+   - can host any branch image and is easily switched between them
+     (as it's simply the selection of a tagged image)
+   - this is used for sharing work in progress with
+     POs/designers/testers etc...
+   - test cycle is launched any time an image is switched
+   - configuration may select mocked components and data-stores
+2. QA
+   - Once `dev` candidates have been approved the branch is merged,
+     the image is promoted/tagged for QA,
+     the image _should_ be unchanged if correct work-flow is
+     observed (otherwise error)
+   - test suit runs against this environments configuration and
+     equivalent data-store
+3. Pre Production
+   - image promoted/tagged
+   - configuration applied
+   - test suite run
+4. Production
+   - Same again
 
 ## Questions
 
