@@ -41,3 +41,17 @@
     images (so could be reconfigured to take git-branch/feature
     images at press of button)
   - _QA_ takes dev images
+
+
+### Feature Branches and Images
+
+1. Developer creates a new feature branch
+2. On push to git CI builds a relevant image (tagged to the
+    branch-name, now used for automated testing and further
+    developmet work)
+3. The images is available for pull to local or other
+   environments
+4. Once marked `dev-complete` can be promted to `dev` environment
+   for QA, sign off, user testing etc...
+
+![Git to Docker Feature Images](./DockerFeatureImages.png)
