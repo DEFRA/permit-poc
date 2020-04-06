@@ -1,6 +1,6 @@
 # Path to Production
 
-
+- [Overview](#overview)
 - [Tools](#tools)
 - [Work Flow](#work-flow)
   - [Feature Branches and Images](feature-branches-and-images)
@@ -8,6 +8,15 @@
   - [Testing Work Flow](testing-work-flow)
   - [Environments](Environments)
 - [Questions](#testing)
+
+
+## Overview
+
+As the proof of concept work makes use of a few different tools our
+infrastructure, work-flow and testing approach will change. This
+requires support from outside the team so this document outlines
+some of what we've got so far and where we'd like to be when this
+approach goes into production.
 
 ## Tools
 
