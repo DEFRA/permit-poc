@@ -51,7 +51,29 @@
     developmet work)
 3. The images is available for pull to local or other
    environments
-4. Once marked `dev-complete` can be promted to `dev` environment
+4. Once marked `dev-complete` can be promoted to `dev` environment
    for QA, sign off, user testing etc...
 
 ![Git to Docker Feature Images](./DockerFeatureImages.png)
+
+### Developer Work Flow
+
+1. Branch-image created (mirroring git branch)
+   - sits on top of latest official node distro image
+   - changes to node modules are infrequent so separeate
+     layer/image used for this
+   - source code makes up the final layer
+   - this image is now tagged and can be deployed anywhere (most
+     likely dev laptops and dev.sign-off env)
+2. Local dev mounts their local file system into the container for
+   live relaod, live-dev feedback loop
+3. Tests are a further mount/layer
+   - this way the feature image can be tested in isolation
+   - we can separate test code and dependencies from release candidate
+   - release candidate is always tagged and ready for
+     - sharing
+     - integration testing
+     - review
+     - deployment/promotion
+
+![Docker Dev Work Flow](./DevWorkFlow.png)
