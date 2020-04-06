@@ -31,7 +31,7 @@ approach goes into production.
     - [ECR with Image Scanning](https://aws.amazon.com/blogs/containers/amazon-ecr-native-container-image-scanning/)
   - Cloud Front? How do we manage Load Balancing
 - Jenkins/GitLab/Code Deploy/Whatever
-  - Docker installed (all processes run from containers)
+  - Docker and Git installed (all processes run from containers)
   - Access to Docker Registry
   - Cypress.io for test suite
 
