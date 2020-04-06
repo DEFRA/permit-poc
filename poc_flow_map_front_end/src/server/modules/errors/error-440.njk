@@ -1,0 +1,10 @@
+{% extends 'error-layout.njk' %}
+
+{% block errorContent %}
+  <p class="govuk-body">
+    You have not submitted anything for a long time so we closed your application to keep your data secure.
+  </p>
+  <p class="govuk-body">
+    Sorry, you cannot get back to your application so you will have to <a class="govuk-link" id="start-again-link" href="{{ startLink }}">start the application again</a>.
+  </p>
+{% endblock %}
