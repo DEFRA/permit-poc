@@ -8,6 +8,8 @@ const { logger } = require('defra-logging-facade')
 const port = process.env.PORT || 3000
 const host = process.env.HOST_NAME
 const phase = process.env.PHASE
+const redisHost = process.env.REDIS_HOST
+const redisPort = process.env.REDIS_PORT
 
 const serverOptions = {
   port: port,
@@ -16,6 +18,19 @@ const serverOptions = {
     validate: {
       options: {
         abortEarly: false
+      }
+    }
+  }
+}
+
+if (redisHost && redisPort) {
+  serverOptions.cache = {
+    provider: {
+      constructor: require('@hapi/catbox-redis'),
+      options: {
+        partition: 'hapi-cache',
+        port: redisPort,
+        host: redisHost
       }
     }
   }
