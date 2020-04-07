@@ -138,7 +138,43 @@ approach goes into production.
 
 ### Possible Environment Layout
 
+The system is a simplification of its predecessors. The aim is to
+have as few components as possible, deliver a basic MVP and ideally
+adjust and develop incrementally. Therefore the layout below is
+illustrative and due to the design of the system at a container
+level is easy to reactor and reconfigure.
+
 ![environment diagram](./EnvironmentDiagram.png)
+
+#### Container A
+
+This container acts as the "front door" to the service. Its core
+functionality consists of:
+
+- housing static assets (CSS, images, file templates etc...)
+- a Hapi web server serving HTML over HTTP to the load-balancer
+- consumes configuration that determines the routes, screen
+  definitions for UI and data collection
+- provides error messages and health status
+- does not have direct access to data-stores, down or up-stream
+  services
+
+#### Container B
+
+This container acts as the conduit and insulation between container
+A and data storage/ connected services. Its core functionality
+consists of:
+
+- connects directly to data-stores (S3 initially and databases
+  should they added later on)
+- passes the completed application to the downstream Dynamics CRM
+  service in Azure
+- data flows one way to CRM, both services share a JSON Schema
+  contract (currently manged via a private Git repo, will ideally
+  move to a shared Defra schema store)
+- presents a simple REST JSON API to container A, enforcing its
+  contracts via JSON Schema/OpenAPI
+
 
 ## Questions
 
