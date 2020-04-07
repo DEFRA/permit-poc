@@ -32,6 +32,8 @@ services:
     build:
       context: ${PWD}/poc_flow_map_front_end
       dockerfile: ${PWD}/poc_flow_map_front_end/dev.Dockerfile
+    depends_on:
+      - redis
     ports:
       - "8020:3000"
     volumes:
@@ -48,6 +50,8 @@ services:
       LOG_LEVEL: "debug"
       SERVICE_URL: "http://localhost:8000"
       IDM_HOST: "http://localhost:999"
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
     entrypoint: "/home/node/bin/run_watch.sh"
   unit.test:
     build:
@@ -65,6 +69,10 @@ services:
     environment:
       HOST_NAME: "unit.test"
     entrypoint: /home/node/bin/run_watch_test.sh
+  redis:
+    image: "redis:5.0.5-alpine"
+    ports:
+      - "6379:6379"
 volumes:
   web_node_modules: {}
   web_flow_map_node_modules: {}
