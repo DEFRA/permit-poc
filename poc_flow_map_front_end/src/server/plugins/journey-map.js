@@ -10,7 +10,7 @@ module.exports = {
     modulePath: resolve(`${process.cwd()}/src/server/modules`),
     setQueryData: (request, data) => Cache.update(request, 'QueryData', { ...data }),
     getQueryData: (request) => Cache.get(request, 'QueryData'),
-    journeyMapPath: isDev && '/journey-map',
-    journeyMapView: 'journey-map/journey-map.view.njk'
+    journeyMapPath: isDev && '/journey-map'
+    // journeyMapView: 'journey-map/journey-map.view.njk'
   }
 }

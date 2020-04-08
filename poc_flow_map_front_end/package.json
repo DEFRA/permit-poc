@@ -27,6 +27,7 @@
     "@hapi/yar": "^10.1.0",
     "@ministryofjustice/frontend": "0.0.17-alpha",
     "blipp": "^4.0.1",
+    "defra-hapi-utils": "git+https://github.com/DEFRA/defra-hapi-utils.git#master",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#master",
     "dotenv": "^8.2.0",
     "glob": "^7.1.6",
