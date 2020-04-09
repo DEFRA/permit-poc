@@ -1,0 +1,15 @@
+--- # Payment map
+
+make-payment:
+  path: "/make-payment"
+  route: make-payment.route
+  next:
+    query: paymentEnabled
+    when:
+      true: check-payment
+      false: return
+
+
+check-payment:
+  path: "/check-payment/{reference}"
+  route: check-payment.route

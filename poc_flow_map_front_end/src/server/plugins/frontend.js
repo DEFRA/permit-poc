@@ -5,7 +5,7 @@ module.exports = {
   options: {
     assetPath: '/assets',
     assetDirectories: ['public/static', 'public/build'],
-    serviceName: 'Front end template demo',
+    serviceName: process.env.SERVICE_NAME,
     viewPath: 'src/server/modules',
     includePaths: [
       'node_modules/@ministryofjustice/frontend',
