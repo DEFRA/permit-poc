@@ -14,7 +14,7 @@
     "nodemon": "^2.0.2",
     "npm": "^6.13.7",
     "nunjucks": "^3.2.0",
-    "xmldom": "^0.2.1"
+    "xmldom": "^0.5.0"
   },
   "devDependencies": {
     "@hapi/lab": "^22.0.3",
