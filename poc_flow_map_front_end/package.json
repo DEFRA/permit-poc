@@ -37,7 +37,7 @@
     "hapi-robots": "^3.2.0",
     "js-yaml": "^3.13.1",
     "nested-property": "^2.0.0",
-    "node-sass": "4.13.1",
+    "node-sass": "7.0.0",
     "nunjucks": "3.2.0"
   },
   "devDependencies": {
